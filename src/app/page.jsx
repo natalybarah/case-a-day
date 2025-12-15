@@ -1,6 +1,21 @@
 import Image from "next/image";
+//import {createCollection} from '../actions/case';
+import { sql } from "../lib/neondb";
 
-export default function Home() {
+export default async function Home() {
+
+  
+
+// await createCollection();
+
+async function getCollections(){
+   const collection = sql`SELECT * FROM collections`
+  return collection 
+}
+
+const response= await getCollections();
+//console.log(response)
+
   return (
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
@@ -33,6 +48,8 @@ export default function Home() {
             </a>{" "}
             center.
           </p>
+          <p>I am the first collection {response[0].title}, with summary {response[0].summary} and with id {response[0].id} and with image
+            <Image src={response[0].image} alt="collection" width="200" height="200" /> </p>
         </div>
         <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
           <a
