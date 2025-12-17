@@ -16,7 +16,7 @@ const response= await getCollections();
   return (
 
     <div className="bg-brand-surface" >
-      <h1 >
+      <h1 className="">
         HELLO NEXTJ
       </h1>
     </div>
