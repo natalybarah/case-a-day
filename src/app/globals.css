@@ -1,19 +1,60 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+
+  max-width: 393px;
+  width: 90%;
+  margin:0 auto;
 }
 
+/* // OTHER TONES TBD
+
+    --color-gray-200: #F0F0F0;
+    --color-gray-500: #E5E7EB;
+    --color-gray-800: #9CA3AF; subtext small texts like year and court name
+    --color-purple-100: #FAFAFA;
+    --color-purple-200: #F5F3FF;
+    --color-need-define: #C7CDD4; /* text for summary of collection and sub text for chips in cards, subtext in signin modal
+    
+*/
+@theme  {
+
+        /* NEUTRALS DARK BACKGROUNDS*/
+    --color-neutral-tertiary: #0B1020; /*modal and signin features*/
+    --color-neutral-primary: #0F172A; /* case content*/
+    --color-neutral-secondary: #1A2133; /*case card in collections */
+
+    --color-text-neutral-primary: #E2E8F0; /*placeholders in signin features NOW TEXT CONTENT*/
+    --color-text-neutral-secondary: #94A3B8; /*Subtitles/subtext for chips inside collection card */
+    --color-text-on-brand: #ffffff; 
+
+    --color-text-brand-emphasis: #EDE9FE; /*titles*/
+    --color-text-brand-accent: #C4B5FD; /*register, forgot password */
+
+    /*BRAND PURPLE*/
+   
+    --color-brand-surface: #4C1D95; /* specific section theme like pills and footer*/
+    --color-brand-solid: #8B5CF6; /*used in buttons background*/
+    --color-brand-solid-hover: #7C3AED; /* Hover states */
+    
+    --background-image-library: linear-gradient(180deg, #0B1020 0%, #121833 55%, #161E3D 100%)
+    
+    /* FONTS */
+    
+    --font-inter: var(--font-inter);
+  
+}
+/*
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
+  --font-fraunces: var(--font-fraunces);
+}*/
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root { 
     --background: #0a0a0a;
     --foreground: #ededed;
   }
@@ -22,5 +63,11 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+ /*font-family: Arial, Helvetica, sans-serif;*/
+
+
+ 
+}
+html{
+  font-family: var(--font-inter);
 }
