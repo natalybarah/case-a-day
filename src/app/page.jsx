@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { sql } from "../lib/neondb";
+import Content from "../components/content";
+import Footer from '../components/footer';
 
 export default async function todayCase() {
 
@@ -15,12 +17,15 @@ const response= await getCollections();
 */
   return (
 
-    <div className="bg-brand-surface" >
+    <div  >
       <h1 className="">
-        HELLO NEXTJ
+        HELLO NEXTJs
       </h1>
-    </div>
+         <Content/>
+         <Footer/>
 
+    </div>
+ 
   );
 }
 
