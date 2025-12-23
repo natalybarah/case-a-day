@@ -1,9 +1,10 @@
 import Image from "next/image";
 import { sql } from "../lib/neondb";
 import Content from "../components/content";
-import Footer from '../components/footer';
 
-export default async function todayCase() {
+import CaseImage from '../components/case-image';
+
+export default async function TodayCase() {
 
 // await createCollection();
 /*
@@ -18,21 +19,14 @@ const response= await getCollections();
   return (
 
     <div  >
-      <h1 className="">
-        HELLO NEXTJs
-      </h1>
-         <Content/>
-         <Footer/>
-
+      <div className="sticky top-0 h-[350px]  -z-10 w-full">
+        <CaseImage  />
+      </div>
+      <div className="-mt-8">
+          <Content  />
+      </div>
     </div>
- 
-  );
-}
-
-
-
 /*
-
 
     <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
       <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
@@ -96,3 +90,5 @@ const response= await getCollections();
       </main>
     </div>
 */
+  )
+}
