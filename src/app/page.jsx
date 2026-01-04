@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { sql } from "../lib/neondb";
 import Content from "../components/content";
-
+import CaseActions from "../components/case-actions";
 import CaseImage from '../components/case-image';
 
 export default async function TodayCase() {
@@ -19,9 +19,15 @@ const response= await getCollections();
   return (
 
     <div  >
-      <div className="sticky top-0 h-[350px]  -z-10 w-full">
+      <div className="  sticky top-0 h-[350px]  -z-10 w-full">
         <CaseImage  />
+        <CaseActions />
+        
       </div>
+      <div>
+
+      </div>
+    
       <div className="-mt-8">
           <Content  />
       </div>
