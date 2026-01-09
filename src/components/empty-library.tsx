@@ -6,7 +6,7 @@ import ActionButton from "./ui/button";
 const EmptyLibrary= ()=>{
 
     return(
-        <div className=" flex flex-col items-center justify-center px-4 gap-4 h-[calc(100dvh-54px)]">
+        <div className=" flex flex-col items-center justify-center px-4 gap-4 ">
             <Image src={Logo} alt="case a day logo purple judge wig" width={108} height={101} />
             <div className=" flex flex-col gap-4">
                 <h2 className="font-fraunces font-semibold text-3xl text-text-neutral-primary text-center">Nothing saved yet</h2>
