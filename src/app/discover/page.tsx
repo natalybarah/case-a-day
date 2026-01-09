@@ -28,7 +28,7 @@ const Discover= ()=>{
                             <AttorneyCard/>
                     </div>
                     <div className="self-end ">
-                        <ActionButton message={"Explore all"} />
+                        <ActionButton impact="bold" message={"Explore all"} />
                     </div>
                 </div>
             </div>

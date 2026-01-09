@@ -8,7 +8,7 @@ const AttorneyCard= ()=>{
             <div className="flex flex-col">
                 <h2 className="font-semibold text-sm text-text-brand-emphasis">Ruth Bader  Ginsburg</h2>
                 <span className="font-regular text-xs text-text-neutral-secondary ">Gender Equality</span>
-                <span className="font-regular text-xs text-text-neutral-secondary ">ACLU Women's Rights</span>
+                <span className=" font-regular text-xs text-text-neutral-secondary ">ACLU Women's Rights</span>
             </div>
         </div>
     )
