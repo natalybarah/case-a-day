@@ -1,13 +1,16 @@
+
 import Image from "next/image";
+import PriceCase from '../assets/pricewaterhousevhopkins.jpg';
 
 
-const CaseCard= ()=> {
-    return (
-        <div className="flex flex-row gap-3 pb-2.5 border-b-white/10 border-b-1">
-            <Image src="/assets/gideonvwainwright.png" alt="case card" height={72} width={72} className="rounded-xl" />
-            <div className="gap">
-                <p className="font-fraunces font-semibold text-[16px] text-text-neutral-primary ">Gideon v. Wainwright</p>
-                <p className="text-text-neutral-secondary font-regular">U.S. Supreme Court <span>•</span> 1963 </p>
+const CaseCard= ()=>{
+    return(
+        <div className="flex flex-col p-3 bg-neutral-secondary rounded-2xl border border-white/8 shadow-card">
+            <Image src={PriceCase} alt="woman in conference room" sizes="50vw" className="w-full object-cover rounded-2xl max-h-[104px]" />
+            <div className="flex flex-col gap-1.5 pt-2">
+                <p className="font-fraunces font-bold text-[16px] text-text-brand-emphasis">Price Waterhouse v. Hopkins</p>
+                <p className="font-medium text-xs text-text-neutral-primary">High impact<span>•</span>Landmark era: late 1980s</p>
+                
             </div>
         </div>
     )

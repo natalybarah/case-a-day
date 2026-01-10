@@ -37,9 +37,15 @@
     --color-brand-surface: #4C1D95; /* specific section theme like pills and footer*/
     --color-brand-solid: #8B5CF6; /*used in buttons background*/
     --color-brand-solid-hover: #7C3AED; /* Hover states */
+
     
     --background-image-library: linear-gradient(180deg, #0B1020 0%, #121833 55%, #161E3D 100%);
     --background-image-footer-gradient: linear-gradient(270deg, #4C1D95 0%, #312E81 100%);
+    --background-image-collection: linear-gradient(180deg, #0B1020 0%, #121733 100%, #161E3D 100%);
+
+    --shadow-card: 0 4px 12px rgba(0, 0, 0, 0.08);
+--shadow-card-pink: 0 4px 12px rgba(255, 0, 144, 0.5);
+
     /* FONTS 312E81*/
     
     --font-inter: var(--font-inter);
