@@ -1,5 +1,5 @@
 
-import CaseCardLight from "@/src/components/case-card";
+import CaseCardLight from "@/src/components/case-card-light";
 import PartialLibrary from "../../components/partial-library";
 import EmptyLibrary from "@/src/components/empty-library";
 

@@ -85,7 +85,7 @@ html {
 }
 
 .mobile-shell{
-  max-width: 430px;
+  max-width: 100%;
   height: 100dvh;
   margin: 0 auto;
   width: 100%;
@@ -103,6 +103,17 @@ html {
   -ms-overflow-style: none
 }
 
+/*NEED TO ANALIZE IF I NEED THE BELOW*/
 
+@media (min-width: 768px) {
+  .mobile-shell {
+    max-width: 430px; 
+    margin: 0 auto;   
+    
+    /* Optional: Visual guide for dev mode */
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+  }
+}
 
 
