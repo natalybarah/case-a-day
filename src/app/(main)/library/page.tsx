@@ -1,6 +1,6 @@
 
 import CaseCardLight from "@/src/components/case-card-light";
-import PartialLibrary from "../../components/partial-library";
+import PartialLibrary from "../../../components/partial-library";
 import EmptyLibrary from "@/src/components/empty-library";
 
 const Library = ()=> {

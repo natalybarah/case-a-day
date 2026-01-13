@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter, Fraunces } from "next/font/google";
 import "./globals.css";
-import Footer from "../components/footer";
 
 const inter= Inter({
   variable: "--font-inter",
@@ -27,10 +26,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={` ${inter.variable} ${fraunces.variable}   antialiased`} >
         <div className="mobile-shell  " >
-       <div className="overflow-y-auto flex-1 no-scrollbar">
-          {children}
-       </div>
-         <Footer/>
+          <div className="overflow-y-auto flex-1 no-scrollbar">
+              {children}
+          </div>
         </div>
       </body>
     </html>

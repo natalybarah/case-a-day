@@ -1,7 +1,7 @@
 
-import CollectionCard from "../../components/collection-card";
-import AttorneyCard from "../../components/attorney-card";
-import ActionButton from "../../components/ui/button";
+import CollectionCard from "../../../components/collection-card";
+import AttorneyCard from "../../../components/attorney-card";
+import ActionButton from "../../../components/ui/button";
 
 
 const Discover= ()=>{
