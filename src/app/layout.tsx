@@ -25,11 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${inter.variable} ${fraunces.variable}   antialiased`} >
-        <div className="mobile-shell  " >
-          <div className="overflow-y-auto flex-1 no-scrollbar">
-              {children}
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );

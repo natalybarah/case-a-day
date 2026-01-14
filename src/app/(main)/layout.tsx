@@ -1,19 +1,17 @@
 import Footer from "@/src/components/footer";
 
 
-export default function mainLayout({children}: Readonly<{children: React.ReactNode;}>){
+export default function footerLayout({children}: Readonly<{children: React.ReactNode;}>){
     return (
 
-        <html>
-            <body>
+       
                 <div className="mobile-shell">
                     <div className="overflow-y-auto flex-1 no-scrollbar">
                         {children}
                     </div>
+                    <Footer/>
                 </div>
-                <Footer/>
-            </body>
-        </html>
+     
     );
 
 }

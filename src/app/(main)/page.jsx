@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { sql } from "../lib/neondb";
-import Content from "../components/content";
-import CaseActions from "../components/case-actions";
-import CaseImage from '../components/case-image';
+import { sql } from "../../lib/neondb";
+import Content from "../../components/content";
+import CaseActions from "../../components/case-actions";
+import CaseImage from '../../components/case-image';
 
 export default async function TodayCase() {
 
