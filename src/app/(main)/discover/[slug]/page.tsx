@@ -26,12 +26,12 @@ const Collection= ()=>{
                 ${isScrolled ? "backdrop-blur-sm border-b border-white/10 shadow-md" : "bg-transparent"} `}>
                 <ArrowLeft color="#C7CDD4" />
                { isScrolled ?  <p className="font-semibold  text-text-brand-emphasis font-fraunces 
-                transition-all duration-700 text-[16px]">Wait, like it's hard?</p> : null}
+                transition-all duration-700 text-[16px]">{`Wait, like it's hard?`}</p> : null}
             </div>
             <div className=" relative">
                 <Image src={CollectionImage} alt="woman lawyer in court"  height={350} className="z-30 rounded-[20px] w-full  aspect-16/7 object-cover object-[60%_35%] relative" />
                 <div className="flex flex-col gap-2 absolute inset-0 z-50 justify-end p-4">
-                    <p className=" text-text-brand-emphasis font-fraunces font-bold text-[22px]">WAIT, LIKE IT'S HARD</p> 
+                    <p className=" text-text-brand-emphasis font-fraunces font-bold text-[22px]">{`WAIT LIKE IT'S HARD`}</p> 
                     <Chip message="Collection"/>
                 </div>
             </div>

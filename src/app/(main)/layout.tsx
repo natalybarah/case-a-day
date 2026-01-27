@@ -1,4 +1,5 @@
-import Footer from "@/src/components/footer";
+import Footer from "../../components/footer";
+
 
 
 export default function footerLayout({children}: Readonly<{children: React.ReactNode;}>){

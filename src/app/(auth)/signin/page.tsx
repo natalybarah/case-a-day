@@ -9,9 +9,12 @@ import GoogleIcon from "@/src/assets/google-icon.svg";
 import Image from "next/image";
 import UserInput from "@/src/components/ui/user-input";
 
+
+
 const SignIn=()=>{
 
     return(
+        
         <div className="flex flex-col bg-neutral-tertiary h-dvh p-4  items-center justify-center gap-8 relative ">
             <Link href="/" className="self-start top-6 absolute">
                 <ArrowLeft color="#C7CDD4"/>
@@ -33,10 +36,12 @@ const SignIn=()=>{
                     <button><Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/></button> 
                     <button><Image src={GoogleIcon} width={44} height={44} alt="google icon"/></button> 
                     <button><Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/></button> 
+                 
                 </div>
                   
             </div>
         </div>
+      
     )
 }
 
