@@ -9,7 +9,7 @@ const Portal=dynamic(()=>import("./modals/portal"), {ssr: false})
 
 
 const CaseActions=()=>{
-    const [open, setOpen]= useState(false)
+    const [showModal, setShowModal]= useState(false)
 
 
 
@@ -20,14 +20,14 @@ const CaseActions=()=>{
                 <Heart size={24} className="text-text-neutral-primary "/>
                 <span className="text-text-neutral-primary text-xs text-center">267</span>
             </div>   
-                <button onClick={()=> setOpen(!open)} >
+                <button onClick={()=> setShowModal(!showModal)} >
                     <Bookmark  size={24} className="text-text-neutral-primary "/>
                 </button>
-                {open ? 
+                {showModal ? 
                 
                
                 <Portal>
-                    <SignInModal/> 
+                    <SignInModal onClose={()=>setShowModal(false)}/> 
                 </Portal>
                 
                 

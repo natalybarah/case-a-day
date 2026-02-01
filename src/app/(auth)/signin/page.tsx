@@ -8,10 +8,10 @@ import LinkedinIcon from "@/src/assets/linkedin-icon.svg";
 import GoogleIcon from "@/src/assets/google-icon.svg";
 import Image from "next/image";
 import UserInput from "@/src/components/ui/user-input";
+import { SignIn } from "@/src/components/auth/auth";
 
 
-
-const SignIn=()=>{
+const SignInUser=()=>{
 
     return(
         
@@ -34,6 +34,7 @@ const SignIn=()=>{
                 </div>
                 <div className="flex flex-row gap-10">
                     <button><Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/></button> 
+                    <SignIn provider="google"></SignIn>
                     <button><Image src={GoogleIcon} width={44} height={44} alt="google icon"/></button> 
                     <button><Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/></button> 
                  
@@ -46,4 +47,4 @@ const SignIn=()=>{
 }
 
 
-export default SignIn;
+export default SignInUser;
