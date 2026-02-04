@@ -1,6 +1,6 @@
 import { signIn, signOut } from "@/src/auth";
 
-export function SignIn({provider}: {provider?: string}){
+export function SignIn({provider, children}: {provider?: string, children?: React.ReactNode}){
     return(
         <form
             action={async ()=>{
@@ -9,7 +9,7 @@ export function SignIn({provider}: {provider?: string}){
             }}
         >
 
-            <button type="submit">SIGN IN WITH GOOGLE</button>
+            <button type="submit">{children}</button>
         </form>
 
 

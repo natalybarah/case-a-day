@@ -20,8 +20,8 @@ const SignInUser=()=>{
                 <ArrowLeft color="#C7CDD4"/>
             </Link>
             <div className="flex flex-col p-4  gap-8 justify-center items-center">
-                <h1 className=" font-bold text-[30px] text-text-on-brand">WELCOME BACK</h1>
-                <p className="font-semibold text-text-neutral-secondary text-center">Sign in to your account, save your favorite cases and sync your bookmarks</p>
+                <h1 className=" font-bold text-[30px] text-text-on-brand">LOG IN</h1>
+                <p className="font-semibold text-text-neutral-secondary text-center">Save your favorite cases and sync your bookmarks</p>
                 <form className="flex flex-col gap-3 w-full">
                     <UserInput placeholder="Email" name="email" inputType="text" icon={Mail} />
                     <UserInput placeholder="Password" name="password" inputType="password" icon={LockKeyhole}/>
@@ -33,11 +33,10 @@ const SignInUser=()=>{
                     <Link className="text-text-brand-accent font-semibold text-[16px]" href="/signup">Register</Link>
                 </div>
                 <div className="flex flex-row gap-10">
-                    <button><Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/></button> 
-                    <SignIn provider="google"></SignIn>
-                    <button><Image src={GoogleIcon} width={44} height={44} alt="google icon"/></button> 
-                    <button><Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/></button> 
-                 
+
+                    <SignIn><Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/></SignIn> 
+                    <SignIn provider="google"><Image src={GoogleIcon} width={44} height={44} alt="google icon"/></SignIn>
+                    <SignIn provider="linkedin"><Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/></SignIn> 
                 </div>
                   
             </div>
