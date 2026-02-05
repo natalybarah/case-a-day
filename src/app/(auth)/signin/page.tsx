@@ -1,5 +1,5 @@
 
-import { ArrowLeft, Mail, LockKeyhole } from "lucide-react";
+import { ArrowLeft, Mail } from "lucide-react";
 //         <Link href={`/posts/${post.id}`}>{post.title}</Link>
 import Link from "next/link";
 import ActionButton from "@/src/components/ui/button";
@@ -8,8 +8,8 @@ import LinkedinIcon from "@/src/assets/linkedin-icon.svg";
 import GoogleIcon from "@/src/assets/google-icon.svg";
 import Image from "next/image";
 import UserInput from "@/src/components/ui/user-input";
-import { SignIn } from "@/src/components/auth/auth";
-
+import { SignIn, SignInWithEmail } from "@/src/components/auth/auth";
+import ButtonContainer from "@/src/components/ui/button-container";
 
 const SignInUser=()=>{
 
@@ -22,21 +22,38 @@ const SignInUser=()=>{
             <div className="flex flex-col p-4  gap-8 justify-center items-center">
                 <h1 className=" font-bold text-[30px] text-text-on-brand">LOG IN</h1>
                 <p className="font-semibold text-text-neutral-secondary text-center">Save your favorite cases and sync your bookmarks</p>
-                <form className="flex flex-col gap-3 w-full">
+                <SignInWithEmail className="flex flex-col gap-6 w-full">
                     <UserInput placeholder="Email" name="email" inputType="text" icon={Mail} />
-                    <UserInput placeholder="Password" name="password" inputType="password" icon={LockKeyhole}/>
-                    <Link className="text-text-brand-accent font-medium text-[13px] self-end pt-2 pb-5" href="/auth-signIn/forgotPassword">Forgot Password?</Link>
-                    <ActionButton impact="boldLarge" message="Sign in"/>
-                </form>
+                   
+                 <ActionButton impact="boldLarge" message="Continue"/>
+                 </SignInWithEmail>
+               
                 <div className="text-center">
                     <p className="text-text-neutral-secondary font-medium text-[16px]">{"Don't have an account?"}</p>
                     <Link className="text-text-brand-accent font-semibold text-[16px]" href="/signup">Register</Link>
                 </div>
                 <div className="flex flex-row gap-10">
 
-                    <SignIn><Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/></SignIn> 
-                    <SignIn provider="google"><Image src={GoogleIcon} width={44} height={44} alt="google icon"/></SignIn>
-                    <SignIn provider="linkedin"><Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/></SignIn> 
+                    <SignIn>
+                        <ButtonContainer message="Facebook">
+                            <Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/>
+                        </ButtonContainer>
+                    </SignIn> 
+                    
+                    <SignIn provider="google">
+                        <ButtonContainer message="Google">
+                            <Image src={GoogleIcon} width={44} height={44} alt="google icon"/>
+                        </ButtonContainer>
+                    </SignIn>
+                    
+                    
+                    <SignIn provider="linkedin">
+                        
+                        <ButtonContainer message="LinkedIn">
+                            <Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/>
+                        </ButtonContainer>
+                    
+                    </SignIn> 
                 </div>
                   
             </div>
