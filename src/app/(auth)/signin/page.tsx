@@ -20,19 +20,14 @@ const SignInUser=()=>{
                 <ArrowLeft color="#C7CDD4"/>
             </Link>
             <div className="flex flex-col p-4  gap-8 justify-center items-center">
-                <h1 className=" font-bold text-[30px] text-text-on-brand">LOG IN</h1>
-                <p className="font-semibold text-text-neutral-secondary text-center">Save your favorite cases and sync your bookmarks</p>
-                <SignInWithEmail className="flex flex-col gap-6 w-full">
-                    <UserInput placeholder="Email" name="email" inputType="text" icon={Mail} />
-                   
-                 <ActionButton impact="boldLarge" message="Continue"/>
-                 </SignInWithEmail>
-               
-                <div className="text-center">
-                    <p className="text-text-neutral-secondary font-medium text-[16px]">{"Don't have an account?"}</p>
-                    <Link className="text-text-brand-accent font-semibold text-[16px]" href="/signup">Register</Link>
+                <h1 className=" font-bold text-[30px] text-text-on-brand ">Save your favorite cases</h1>
+                <h2 className=" font-bold text-[25px] text-gray-100 text-center">Log into your case a day account</h2>
+                <div className="w-full flex flex-row items-center">
+                    <div className="border-t-text-neutral-secondary border-t w-full"></div>
+                        <p className="font-semibold text-text-neutral-secondary text-center  w-full">Log in with</p>
+                    <div className="border-t-text-neutral-secondary border-t w-full"></div>
                 </div>
-                <div className="flex flex-row gap-10">
+                <div className="flex flex-row gap-5">
 
                     <SignIn>
                         <ButtonContainer message="Facebook">
@@ -55,8 +50,24 @@ const SignInUser=()=>{
                     
                     </SignIn> 
                 </div>
+               <div className="w-full flex flex-row items-center">
+                    <div className="border-t-text-neutral-secondary border-t w-full"></div>
+                        <p className="font-semibold text-text-neutral-secondary text-center text-nowrap p-4  w-full">or continue with</p>
+                    <div className="border-t-text-neutral-secondary border-t w-full"></div>
+                </div>
+                <SignInWithEmail className="flex flex-col gap-6 w-full">
+                    <UserInput placeholder="Email" name="email" inputType="text" icon={Mail} />
+                   
+                 <ActionButton impact="boldLarge" message="Continue"/>
+                 </SignInWithEmail>
+               
+                <div className="text-center">
+                    <p className="text-text-neutral-secondary font-medium text-[16px]">{"Don't have an account?"}</p>
+                    <Link className="text-text-brand-accent font-semibold text-[16px]" href="/signup">Register</Link>
+                </div>
                   
             </div>
+                
         </div>
       
     )
