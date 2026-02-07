@@ -15,13 +15,15 @@ const SignInUser=()=>{
 
     return(
         
-        <div className="flex flex-col bg-neutral-tertiary h-dvh p-4  items-center justify-center gap-8 relative ">
+        <div className="flex flex-col bg-neutral-tertiary h-dvh p-4   items-center justify-center gap-8  relative ">
             <Link href="/" className="self-start top-6 absolute">
                 <ArrowLeft color="#C7CDD4"/>
             </Link>
-            <div className="flex flex-col p-4  gap-8 justify-center items-center">
-                <h1 className=" font-bold text-[30px] text-text-on-brand ">Save your favorite cases</h1>
-                <h2 className=" font-bold text-[25px] text-gray-100 text-center">Log into your case a day account</h2>
+            <div className="flex flex-col p-4  xs:gap-8 gap-3 justify-center items-center">
+                <div className="gap-2 text-center mb-6">
+                    <h1 className=" font-extrabold xs:text-[30px] text-[30px]/8 text-text-on-brand ">Save your favorite cases</h1>
+                    <h2 className=" font-bold text-[20px] text-text-neutral-secondary">Log into your Case a day account</h2>
+                </div>
                 <div className="w-full flex flex-row items-center">
                     <div className="border-t-text-neutral-secondary border-t w-full"></div>
                         <p className="font-semibold text-text-neutral-secondary text-center  w-full">Log in with</p>
@@ -60,13 +62,15 @@ const SignInUser=()=>{
                    
                  <ActionButton impact="boldLarge" message="Continue"/>
                  </SignInWithEmail>
-               
-                <div className="text-center">
-                    <p className="text-text-neutral-secondary font-medium text-[16px]">{"Don't have an account?"}</p>
-                    <Link className="text-text-brand-accent font-semibold text-[16px]" href="/signup">Register</Link>
-                </div>
                   
+                <div className="text-center ">
+                    <p className="text-text-neutral-secondary font-medium text-[11px]  ">
+                        By continuing, you acknowledge that you understand and agree to the Terms & Conditions and Privacy Policy
+                    </p>
+                  {/*  <Link className="text-text-brand-accent font-semibold text-[16px]" href="/signup">Register</Link>*/}
+                </div>
             </div>
+               
                 
         </div>
       
