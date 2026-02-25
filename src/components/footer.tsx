@@ -1,22 +1,32 @@
+'use client'
+
 
 import { LibraryBig, CalendarDays, Scale} from "lucide-react";
-
-
+import Link from "next/link";
+//import { PathName } from "./path-name";
+import { usePathname } from "next/navigation";
+    
 const Footer=() =>{
+    
+    const pathName= usePathname()
+
+
     return(
     <div className="flex flex-row h-[54px]  justify-between pr-[30px] pl-[30px] items-center bg-footer-gradient">
-        <div className=" flex flex-col gap-[5px] items-center">
-            <CalendarDays className="text-text-on-brand justify-center"/>
-            <span className="text-text-on-brand text-[8px]">Today</span>
-        </div>
-        <div className="flex flex-col gap-[5px] items-center">
-            <Scale className="text-text-neutral-secondary"/>
-            <span className="text-text-neutral-secondary text-[8px]">Discover</span>
-        </div>
-        <div className="flex flex-col gap-[5px] items-center">
-            <LibraryBig className="text-text-neutral-secondary"/>
-            <span className="text-text-neutral-secondary text-[8px]">Library</span>
-        </div>
+        <Link href="/" className=" flex flex-col gap-[5px] items-center">
+            <CalendarDays 
+             className={ pathName === "/" ? "text-text-on-brand" : "text-text-neutral-secondary"}/>
+            <span className={`text-[8px] ${ pathName === "/" ? "text-text-on-brand" : "text-text-neutral-secondary"}`}>Today</span>
+        </Link>
+    
+        <Link href="/discover"  className= {`     flex flex-col gap-[5px] items-center`}>
+            <Scale   className={ pathName === "/discover" ? "text-text-on-brand" : "text-text-neutral-secondary"}/>
+            <span className={`text-[8px] ${ pathName === "/discover" ? "text-text-on-brand" : "text-text-neutral-secondary"}`}>Discover</span>
+        </Link>
+        <Link href="/library" className="flex flex-col gap-[5px] items-center">
+            <LibraryBig  className={ pathName === "/library" ? "text-text-on-brand" : "text-text-neutral-secondary"}/>
+            <span className={`text-[8px] ${ pathName === "/library" ? "text-text-on-brand" : "text-text-neutral-secondary"}`}>Library</span>
+        </Link>
     </div>
     )
 }

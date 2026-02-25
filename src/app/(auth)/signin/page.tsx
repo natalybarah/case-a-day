@@ -31,14 +31,14 @@ const SignInUser=()=>{
                 </div>
                 <div className="flex flex-row gap-5">
 
-                    <SignIn>
-                        <ButtonContainer message="Facebook">
+                    <SignIn provider="facebook">
+                        <ButtonContainer  message="Facebook">
                             <Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/>
                         </ButtonContainer>
                     </SignIn> 
                     
                     <SignIn provider="google">
-                        <ButtonContainer message="Google">
+                        <ButtonContainer  message="Google">
                             <Image src={GoogleIcon} width={44} height={44} alt="google icon"/>
                         </ButtonContainer>
                     </SignIn>
@@ -46,7 +46,7 @@ const SignInUser=()=>{
                     
                     <SignIn provider="linkedin">
                         
-                        <ButtonContainer message="LinkedIn">
+                        <ButtonContainer  message="LinkedIn">
                             <Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/>
                         </ButtonContainer>
                     

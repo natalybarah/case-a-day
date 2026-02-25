@@ -117,3 +117,27 @@ html {
 }
 
 
+@keyframes popping{
+  0% {
+    left: 0;
+    bottom: 0;
+    opacity: 1;
+    transform: scale(0);
+  }
+ 
+  60% {
+    left: var(--distanceXStyle);
+    bottom: var(--distanceYStyle);
+    opacity: 0.7;
+    transform: scale(1)
+  }
+
+  80%{ opacity: 0.3; }
+  90%, 100%{
+    left: var(--distanceXStyle); 
+    bottom: var(--distanceYStyle);
+      opacity: 0;
+    transform: scale(0)
+  }
+}
+

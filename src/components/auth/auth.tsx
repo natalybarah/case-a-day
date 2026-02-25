@@ -8,7 +8,7 @@ export function SignIn({provider, children}: {provider?: string, children?: Reac
                 await signIn(provider)
             }}
         >
-            <button type="submit">{children}</button>
+            {<button type="submit">{children}</button>}
         </form>
 
 
@@ -23,7 +23,6 @@ export function SignInWithEmail({children, className}:{ children?: React.ReactNo
             await signIn("resend", formData)
         }}>
             {children}
-
         </form>
     )
 }

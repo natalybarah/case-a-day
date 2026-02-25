@@ -14,13 +14,13 @@ const Discover= ()=>{
                     <h1 className="font-fraunces font-black text-[40px] text-text-brand-emphasis xs:mb-2.5 ">Discover</h1>
                     <h2 className="font-semibold font-fraunces text-[18px] text-text-brand-emphasis ">Collections</h2>
                 </div> 
-                <div className="flex flex-row flex-wrap pt-0  gap-4  justify-center ">
+                <div className="flex flex-row flex-wrap pt-2  gap-4  justify-center ">
                     <CollectionCard isNew={isNew}/>
                     <CollectionCard/>
                     <CollectionCard/>
                 </div>
                 <div className="flex flex-col xs:gap-6 gap-3">
-                    <h2 className="font-semibold font-fraunces text-[18px]  text-text-brand-emphasis  ">Attorneys</h2>
+                    <h2 className="font-semibold font-fraunces text-[18px]  text-text-brand-emphasis pt-2 ">Attorneys</h2>
                 
                     <div  className="flex flex-row gap-2.5 overflow-x-auto no-scrollbar" >
                             <AttorneyCard/>

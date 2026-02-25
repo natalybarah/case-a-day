@@ -10,19 +10,40 @@ const Portal=dynamic(()=>import("./modals/portal"), {ssr: false})
 
 const CaseActions=()=>{
     const [showModal, setShowModal]= useState(false)
+    const [heartsArray, setHeartsArray] = useState([{}])
 
+  /*  const createExplosion=()=>{
+        const heartInfoArray=[];
+        for(let i=0; i <= 12; i++){
+            
+
+            const heartInfo={
+                id: 0,
+                angle: 0,
+                distance: 0,
+                color: "pink"           
+            }
+            heartInfoArray.push(heartInfo)
+        }
+        
+    setHeartsArray(heartInfoArray)
+
+    }
+*/
 
 
 
     return(
         <div className="flex flex-col items-center absolute gap-2.5 top-1/2 -translate-y-1/2  right-2 z-20 "> 
             <div className="flex flex-col items-center gap-0.5">
-                <Heart size={24} className="text-text-neutral-primary "/>
+                <Heart size={24} className="text-text-neutral-primary  "/>
                 <span className="text-text-neutral-primary text-xs text-center">267</span>
             </div>   
                 <button onClick={()=> setShowModal(!showModal)} >
                     <Bookmark  size={24} className="text-text-neutral-primary "/>
                 </button>
+
+
                 {showModal ? 
                 
                
