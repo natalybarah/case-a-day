@@ -118,7 +118,7 @@ html {
 
 
 @keyframes popping{
-  0% {
+  0%  {
     left: 0;
     bottom: 0;
     opacity: 1;
@@ -141,3 +141,44 @@ html {
   }
 }
 
+@keyframes fillerRed{
+  0%, 100%{
+    color: #ef4444;
+    fill: #ef4444;
+    transform: scale(1)
+  }
+
+  80%{
+    color: #ef4444;
+    fill: #ef4444;
+    transform: scale(1.1)
+  }
+}
+
+@keyframes fillerPurple{
+  0%, 100%{
+    color: var(--color-brand-solid);
+    fill: var(--color-brand-solid);
+    transform: scale(1)
+  }
+
+  80%{
+    color: var(--color-brand-solid);
+    fill: var(--color-brand-solid);
+    transform: scale(1.1)
+  }
+}
+
+@keyframes fillerWhite{
+  0%, 100%{
+    color: white;
+    fill: white;
+    transform: scale(1)
+  }
+
+  80%{
+    color: white;
+    fill: white;
+    transform: scale(1.1)
+  }
+}

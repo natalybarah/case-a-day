@@ -1,7 +1,7 @@
 'use client'
 import {ArrowLeft} from 'lucide-react'
 import Image from 'next/image';
-import CollectionImage from '../../../assets/waitlikeitshard.jpg';
+import CollectionImage from '../../../../assets/waitlikeitshard.jpg';
 import Chip from '@/src/components/ui/chip';
 import CaseCard from '@/src/components/case-card';
 import { useState } from 'react';
