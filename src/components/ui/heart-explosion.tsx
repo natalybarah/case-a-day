@@ -1,44 +1,32 @@
 'use client';
-import { useState, CSSProperties, useEffect } from "react";
+import { useState, CSSProperties } from "react";
 import { Heart } from "lucide-react";
 
-type HeartExplosionProps={
-    rotateExplosion: string
-}
-const HeartExplosion=(props: HeartExplosionProps)=>{
+const HeartExplosion=()=>{
    
     type HeartType={
-        distanceXNew: string,
-        distanceYNew: string
+        distanceX: string,
+        distanceY: string
     }
 
-    const [finalHeartInfoArray]= useState<HeartType[]>(()=> {
+    const [heartContainer]= useState<HeartType[]>(()=> {
 
     const temporaryHeart: HeartType[]= [];
             for(let i=0; i <= 12; i++){
-                        const calDegree= Math.floor(Math.random() * (180 - 90 + 1) + 90);
-                    //  const calDegree= 180
+                    const calDegree= Math.floor(Math.random() * (180 - 90 + 1) + 90);
+             
                     let distanceLength=0
-                    if(i <= 7){
-                        distanceLength= 45;
-                    } else if (i > 7 && i  <= 10){
-                        distanceLength= 30
-                    } else{
-                        distanceLength= 20
-                    }
+                    distanceLength = i <= 7 ? 45 : i > 7 && i <= 10 ? 30 : 20
 
-                    //prior distance length 60, 45, 50
-
-                        const coseno= Math.cos(calDegree * Math.PI/180)
-                        const seno = Math.sin(calDegree * Math.PI / 180)
+                        const cos= Math.cos(calDegree * Math.PI/180)
+                        const sin = Math.sin(calDegree * Math.PI / 180)
               
-                        const distanceX= `${(distanceLength * coseno)}px`;
-                        const distanceY= `${(distanceLength * seno)}px`
+                        const x= `${(distanceLength * cos)}px`;
+                        const y= `${(distanceLength * sin)}px`
                 
-
                         const heartObject: HeartType={
-                            distanceXNew: distanceX,
-                            distanceYNew: distanceY,       
+                            distanceX: x,
+                            distanceY: y,       
                         };
                         
                     temporaryHeart.push(heartObject);     
@@ -46,9 +34,7 @@ const HeartExplosion=(props: HeartExplosionProps)=>{
         return temporaryHeart;
     });
      
-    function isEven(n: number){
-        return (n % 2 ==0)
-    }
+    function isEven(n: number){return (n % 2 ==0)}
 
     interface HeartStyle extends CSSProperties{
         '--distanceXStyle'?: string;
@@ -56,18 +42,18 @@ const HeartExplosion=(props: HeartExplosionProps)=>{
     };
                
     return(
-            finalHeartInfoArray.map((heart, index)=>(
-
-                <Heart key={index} 
+            heartContainer.map((heart, index)=>(
+                <Heart 
+                    key={index}
                     style={{
                         
-                        '--distanceXStyle': `${heart.distanceXNew}`,
-                        '--distanceYStyle': `${heart.distanceYNew}`,
+                        '--distanceXStyle': `${heart.distanceX}`,
+                        '--distanceYStyle': `${heart.distanceY}`,
                     } as HeartStyle} 
                     strokeWidth={1.5}
-                    className={` w-2 h-2 absolute   -translate-x-1/2 translate-y-1/2 ${props.rotateExplosion} 
+                    className={` w-2 h-2 absolute   -translate-x-1/2 translate-y-1/2 text-red-500 fill-red-500
                     ${isEven(index) ? `animate-[popping_0.4s_ease-out_0s_both]` : `animate-[popping_0.4s_ease-out_0.1s_both]` }   
-            `}>
+                    `}>
                 </Heart>
             ))
     )
