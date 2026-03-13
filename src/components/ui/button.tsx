@@ -10,7 +10,8 @@ export function cx(...classes: string[]){
 
 type ButtonProps={
   impact?: 'bold' | 'boldLarge' | 'light', 
-  message: string
+  message: string,
+  onClick?: ()=> void
 }
 
 const impactClasses: Record<NonNullable<ButtonProps['impact']>, string>={
@@ -22,11 +23,11 @@ const impactClasses: Record<NonNullable<ButtonProps['impact']>, string>={
 
 
 
-const ActionButton: FC<ButtonProps>= ({impact= 'bold', message})=>{
+const ActionButton: FC<ButtonProps>= ({impact= 'bold', message, onClick})=>{
 
     return(
        <div>
-            <button className={ cx(baseButtonClasses, impactClasses[impact])}>{message}</button>
+            <button onClick={onClick} className={ cx(baseButtonClasses, impactClasses[impact])}>{message}</button>
     
     </div>
     )

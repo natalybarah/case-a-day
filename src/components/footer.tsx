@@ -10,7 +10,6 @@ const Footer=() =>{
     
     const pathName= usePathname()
 
-//easein 150 scale 75
     return(
     <div className="flex flex-row h-[54px]  justify-between pr-[30px] pl-[30px] items-center bg-footer-gradient">
         <Link href="/" className="transition-all active:scale-75 duration-150 ease-in flex flex-col gap-[5px] items-center">

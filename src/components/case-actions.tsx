@@ -38,7 +38,9 @@ const CaseActions=()=>{
     return(
         <div className="flex flex-col items-center absolute gap-2.5 top-1/2 -translate-y-1/2  right-4 z-20 "> 
             <div className="flex flex-col items-center gap-0.5 relative cursor-pointer">
-                <Heart onClick={()=>setToggle(prev=> !prev)} size={24}  className={`transition-transform active:scale-75 ${toggle ? "text-red-500 fill-red-500" : "text-text-neutral-primary"}`} />
+                <Heart onClick={()=>setToggle(prev=> !prev)} size={24}  
+                className={`transition-transform active:scale-75 
+                ${toggle ? "text-red-500 fill-red-500" : "text-text-neutral-primary"}`} />
                 <span className="text-text-neutral-primary text-xs text-center">267</span>
                 <div className=" w-0 h-0 absolute top-1/2 left-1/2 ">
                     {toggle ? <HeartExplosion /> : null}
