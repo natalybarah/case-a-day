@@ -1,23 +1,23 @@
-import {FC, ButtonHTMLAttributes} from 'react'
+import {FC} from 'react'
 
 
-const baseButtonClasses="flex justify-center shadow-2xs/20 font-semibold text-text-brand-emphasis";
+const baseButtonClasses="flex justify-center shadow-2xs/20 font-semibold text-text-brand-emphasis max-w-[300px] text-xl";
 
 export function cx(...classes: string[]){
   return classes.filter(Boolean).join(' ')
 }
 
 
-type ButtonProps={
+export type ButtonProps={
   impact?: 'bold' | 'boldLarge' | 'light', 
   message: string,
   onClick?: ()=> void
 }
 
 const impactClasses: Record<NonNullable<ButtonProps['impact']>, string>={
-  bold: 'bg-brand-solid w-fit px-3.5 py-0.5 rounded-xl',
-  boldLarge: 'bg-brand-solid w-full px-3.5 py-2.5 rounded-xl text-[16px]',
-  light: 'bg-solid-[#E1E1E1]/0.06 border-1 border-white/12 w-full px-3.5 py-2.5 rounded-xl text-[16px]'
+  bold: 'bg-brand-solid w-fit px-3.5 py-0.5 rounded-xl ',
+  boldLarge: 'bg-brand-solid w-full px-3.5 py-2.5 rounded-xl ',
+  light: 'bg-solid-[#E1E1E1]/0.06 border-1 border-white/12 w-full px-3.5 py-2.5 rounded-xl '
   
 }
 
@@ -26,10 +26,9 @@ const impactClasses: Record<NonNullable<ButtonProps['impact']>, string>={
 const ActionButton: FC<ButtonProps>= ({impact= 'bold', message, onClick})=>{
 
     return(
-       <div>
-            <button onClick={onClick} className={ cx(baseButtonClasses, impactClasses[impact])}>{message}</button>
-    
-    </div>
+        <div className='flex items-center justify-center'>
+            <button onClick={onClick} className={cx(baseButtonClasses, impactClasses[impact])}>{message}</button>
+        </div>
     )
 }
 

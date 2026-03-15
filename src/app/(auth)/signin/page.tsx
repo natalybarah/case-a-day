@@ -70,7 +70,7 @@ const SignInUser=()=>{
                   {/*  <Link className="text-text-brand-accent font-semibold text-[16px]" href="/signup">Register</Link>*/}
                 </div>
             </div>
-               
+            <FakeComponent/>       
                 
         </div>
       

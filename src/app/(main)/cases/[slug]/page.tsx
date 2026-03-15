@@ -2,7 +2,7 @@ import CaseImage from "@/src/components/case-image";
 import CaseActions from "@/src/components/case-actions";
 import Content from "@/src/components/content";
 import {sql} from '../../../../lib/neondb'
-
+import NotFound from "../../../not-found"
 import { ErrorState} from "@/src/components/error-state";
 
 //aqui debo saber que renderizar, tal vez atraves de un prop? o atraves del URL
@@ -23,16 +23,12 @@ export default async function  Cases({
 
       const {slug}=await params;
       const fakeSlug='love'
-      const result = await sql`SELECT * FROM table_fake WHERE slug = ${slug}`;
+      const result = await sql`SELECT * FROM cases WHERE slug = ${slug}`;
       //si no hay un resultado, quiero que haya un expected error del servidor, producto de un async await. 
       //error tipo failed to load from database
 
     if(!result || result.length === 0){
-      return( 
-        <ErrorState primaryText="resource doesnt exist"
-          secondaryText="resource doesnt exist">
-             </ErrorState>
-      )
+      return <NotFound/>
     }
      //DEBO agregar error en caso de que el user typee un caso que no existe, case resource doesn't exist
 
@@ -62,7 +58,7 @@ const response= await getCollections();
 
       </div>
       <div>
-
+<FakeComponent/>
       </div>
     
       <div className="-mt-8">
@@ -72,3 +68,4 @@ const response= await getCollections();
 
   )
 };
+//here i put fakecomponent to test error
