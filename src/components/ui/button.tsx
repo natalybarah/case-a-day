@@ -1,7 +1,12 @@
 import {FC} from 'react'
 
 
-const baseButtonClasses="flex justify-center shadow-2xs/20 font-semibold text-text-brand-emphasis max-w-[300px] text-xl";
+const baseButtonClasses=cx(
+  "flex justify-center shadow-2xs/20 font-semibold text-text-brand-emphasis max-w-[300px] text-xl ",
+  "transition-all duration-200 ease-in-out", 
+  "active:scale-90 active:shadow-inner active:opacity-80", 
+  "md:hover:-translate-y-1 md:hover:shadow-lg" 
+)
 
 export function cx(...classes: string[]){
   return classes.filter(Boolean).join(' ')
@@ -15,9 +20,9 @@ export type ButtonProps={
 }
 
 const impactClasses: Record<NonNullable<ButtonProps['impact']>, string>={
-  bold: 'bg-brand-solid w-fit px-3.5 py-0.5 rounded-xl ',
-  boldLarge: 'bg-brand-solid w-full px-3.5 py-2.5 rounded-xl ',
-  light: 'bg-solid-[#E1E1E1]/0.06 border-1 border-white/12 w-full px-3.5 py-2.5 rounded-xl '
+  bold: 'bg-brand-solid w-fit px-6 py-2 rounded-xl md:hover:brightness-110',
+  boldLarge: 'bg-brand-solid w-full px-3.5 py-2.5 rounded-xl md:hover:brightness-110',
+  light: 'bg-white/5 border-1 border-white/12 w-full px-3.5 py-2.5 rounded-xl md:hover:bg-white/10 md:hover:border-white/20 active:border-white/40 active:bg-white/20'
   
 }
 

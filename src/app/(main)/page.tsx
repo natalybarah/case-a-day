@@ -6,7 +6,7 @@ import CaseImage from "../../components/case-image";
 import { sql } from "@/src/lib/neondb";
 import { notFound } from "next/navigation";
 
-
+import { TodayCaseSkeleton } from "@/src/components/ui/skeletons";
 
 
 export default async function TodayCase({
@@ -48,7 +48,7 @@ const response= await getCollections();
       </div>
     
       <div className="-mt-8">
-          <Content content={content} year={year} title={title} court={court} quote={quote} published_at={published_at} />
+          <TodayCaseSkeleton content={content} year={year} title={title} court={court} quote={quote} published_at={published_at} />
       </div>
     </div>
 

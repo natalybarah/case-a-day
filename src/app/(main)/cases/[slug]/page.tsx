@@ -3,15 +3,6 @@ import CaseActions from "@/src/components/case-actions";
 import Content from "@/src/components/content";
 import {sql} from '../../../../lib/neondb'
 import NotFound from "../../../not-found"
-import { ErrorState} from "@/src/components/error-state";
-
-//aqui debo saber que renderizar, tal vez atraves de un prop? o atraves del URL
-//o tal vez hago un fetch dependiendo de un prop con el url del caso y hacer el fetch? si slug === xxx, fetch case
-
-
-//probemos usar pathname y renderizar de acuerdo a path name
-//debo extraer el case especifico con el slug 
-
 
 
 export default async function  Cases({
@@ -24,13 +15,11 @@ export default async function  Cases({
       const {slug}=await params;
       const fakeSlug='love'
       const result = await sql`SELECT * FROM cases WHERE slug = ${slug}`;
-      //si no hay un resultado, quiero que haya un expected error del servidor, producto de un async await. 
-      //error tipo failed to load from database
-
+    
     if(!result || result.length === 0){
       return <NotFound/>
     }
-     //DEBO agregar error en caso de que el user typee un caso que no existe, case resource doesn't exist
+
 
       const {quote, content, year, title, court, image, image_alt_text, published_at}= result[0];
 

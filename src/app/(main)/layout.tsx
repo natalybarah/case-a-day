@@ -1,7 +1,5 @@
 import Footer from "../../components/footer";
 
-
-
 export default function footerLayout({children}: Readonly<{children: React.ReactNode;}>){
     return (
 
