@@ -11,19 +11,6 @@ import { TodayCaseSkeleton } from "@/src/components/ui/skeletons";
 
 export default async function TodayCase(){
 
-
-  //const {slug}= await params;
-
-// await createCollection();
-/*
-async function getCollections(){
-   const collection = sql`SELECT * FROM collections`
-  return collection 
-}
-
-const response= await getCollections();
-//console.log(response)*/
-
   const totalCases= 2;
   const now= new Date();
   const thisYear= now.getFullYear();
@@ -37,14 +24,13 @@ const response= await getCollections();
   
 
   const result = await sql`SELECT * FROM cases ORDER BY id ASC LIMIT 1 OFFSET ${caseIndex}`
-
+console.log(result, "result")
   console.log(caseIndex, "caseIndex")
 
   if(!result || result.length === 0 ){
      notFound()
   }
-  const {quote, content, year, title, court, image, image_alt_text, published_at}= result[caseIndex];
-
+  const {quote, content, year, title, court, image, image_alt_text, published_at}= result[0]
 
 
 
