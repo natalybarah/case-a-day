@@ -4,6 +4,8 @@ import { ErrorState } from "@/src/components/error-state";
 import ActionButton from "@/src/components/ui/button";
 import Link from "next/link";
 import { ButtonProps } from "@/src/components/ui/button";
+import { usePathname } from "next/navigation";
+
 
 export default function ErrorTemplate({
     error,
@@ -19,6 +21,8 @@ export default function ErrorTemplate({
         useEffect(()=>{
             console.log(error, "ERROR")
         }, [error])
+
+    const pathName= usePathname();
 
     const content={
         auth: {
@@ -40,9 +44,9 @@ export default function ErrorTemplate({
             primaryText: "Resource not found",
             secondaryText: "The case or page you are looking for doesn't exist or has been moved.",
             tertiaryText: "Please check the URL or return to the library.",
-            buttonMessage: "Back to Home",
+            buttonMessage: "Back to your docket",
             imageUrl: "/images/not-found.png",
-            href: "/"
+            href: "/library"
         }
     }
     const activeContent= content[variant];

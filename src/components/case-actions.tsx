@@ -14,7 +14,7 @@ const CaseActions=()=>{
     const [toggle, setToggle]= useState(false);
     const [bookmark, setBookmark] =useState(false);
       
-//aqui voy a estar fetcheando por caso, params me dan el argumento 
+
     type ArrayProps={
         uuid: number,
         likes: number
@@ -29,7 +29,7 @@ const CaseActions=()=>{
         {uuid: 45, likes: 297}, 
     ]
     const selectedCase= {uuid: 45, likes: 267}
-
+//yo aqui le di un valor fijo pero en realidad necesito pasar el currect case del database a case actions. mediante props
   const [activeCase, setActiveCase]= useState(selectedCase);
 
     function handleAddLike(){
