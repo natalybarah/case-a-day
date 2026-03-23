@@ -8,23 +8,27 @@ type CollectionCardProps={
     isnew: boolean,
     title: string,
     chips: string[],
-    image: string
+    image: string,
+    slug: string
 }
 const CollectionCard: FC<CollectionCardProps>=(props)=>{
 
 
     return(
        
-        <Link href="/discover/collection" className={`  flex flex-col items-start p-2.5  relative ${props.isnew? "w-full" : "w-[calc(50%-0.5rem)]"}  bg-cover ${props.isnew ? "aspect-video"  : "aspect-3/4"}  bg-no-repeat  max-h-40 xs:max-h-none shadow-[0_8px_24px_rgba(0,0,0,0.35)] rounded-2xl`}>
+        <Link href={`/discover/${props.slug}`} className={`  flex flex-col items-start p-2.5  relative ${props.isnew? "w-full" : "w-[calc(50%-0.5rem)]"}  bg-cover ${props.isnew ? "aspect-video"  : "aspect-3/4"}  bg-no-repeat  max-h-40 xs:max-h-none shadow-[0_8px_24px_rgba(0,0,0,0.35)] rounded-2xl`}>
             <Image src={props.image} alt="collection" fill className="object-cover object-top rounded-2xl"/> 
             <div  className="absolute  inset-0 w-full h-full bg-linear-to-t from-black/70 to-transparent rounded-2xl">
                 <div className=" absolute  bg-brand-solid/14 w-full h-full rounded-2xl"></div>
             </div>
-            <Chip message="New"/>
+            {props.isnew && <Chip message="New"/> }
                 <div className="relative z-10 h-full justify-end flex flex-col ">
                     <h3 className={`text-text-brand-emphasis font-fraunces ${props.isnew ? "text-[22px]" : "text-[18px]"} font-bold`}>{props.title}</h3>
                     <p className={`text-text-neutral-secondary font-inter ${props.isnew ? "text-sm" : "text-xs"} font-medium`}>{props.chips[0]} <span> • </span>{props.chips[1]}</p>
                 </div>
+                {/* y si aqui pongo {children} 
+                poniendo en discover adentro collectioncard y que collectionCard wraps collection y poniendo link que wrappee collectioncard y navege a collection?
+                */ }
          
          </Link>
     )

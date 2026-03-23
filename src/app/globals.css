@@ -70,7 +70,7 @@
 }*/
 
 body {
-  background: var(--background);
+  background: var(--color-neutral-tertiary);
 
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
