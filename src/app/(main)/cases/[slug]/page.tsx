@@ -47,7 +47,7 @@ const response= await getCollections();
 
       </div>
       <div>
-<FakeComponent/>
+
       </div>
     
       <div className="-mt-8">

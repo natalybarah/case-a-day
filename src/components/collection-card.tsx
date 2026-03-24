@@ -26,10 +26,6 @@ const CollectionCard: FC<CollectionCardProps>=(props)=>{
                     <h3 className={`text-text-brand-emphasis font-fraunces ${props.isnew ? "text-[22px]" : "text-[18px]"} font-bold`}>{props.title}</h3>
                     <p className={`text-text-neutral-secondary font-inter ${props.isnew ? "text-sm" : "text-xs"} font-medium`}>{props.chips[0]} <span> • </span>{props.chips[1]}</p>
                 </div>
-                {/* y si aqui pongo {children} 
-                poniendo en discover adentro collectioncard y que collectionCard wraps collection y poniendo link que wrappee collectioncard y navege a collection?
-                */ }
-         
          </Link>
     )
 }

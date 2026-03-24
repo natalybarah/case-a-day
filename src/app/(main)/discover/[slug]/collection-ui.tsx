@@ -32,8 +32,9 @@ const CollectionUI= ({collection}:{collection: CollectionProps})=>{
             <div className={`fixed top-0 left-1/2 -translate-x-1/2 w-full md:max-w-[430px] z-60 flex items-center p-4 gap-3 transition-all duration-300 
                 ${isScrolled ? "backdrop-blur-sm border-b border-white/10 shadow-md" : "bg-transparent"} `}>
                 <ArrowLeft color="#C7CDD4" onClick={()=> router.back()}/>
-               { isScrolled ?  <p className="font-semibold  text-text-brand-emphasis font-fraunces 
-                transition-all duration-700 text-[16px]">{collection.title.toUpperCase()}</p> : null}
+               { isScrolled ?  
+               <p className="font-semibold  text-text-brand-emphasis font-fraunces uppercase
+                transition-all duration-700 text-[16px]">{collection.title}</p> : null}
             </div>
             <div className="relative w-full aspect-16/7 min-h-[200px]">
                 <Image src={collection.image} alt="woman lawyer in court" priority fill className="z-30 rounded-[20px] object-cover object-[60%_35%] relative" />
