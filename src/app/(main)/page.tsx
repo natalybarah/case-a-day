@@ -5,12 +5,13 @@ import CaseActions from "../../components/case-actions";
 import CaseImage from "../../components/case-image";
 import { sql } from "@/src/lib/neondb";
 import { notFound } from "next/navigation";
-
+import { auth } from "@/src/auth";
 //import { TodayCaseSkeleton } from "@/src/components/ui/skeletons";
 
 
 export default async function TodayCase(){
-
+  const session= await auth();
+  console.log(session, "SESSION")
   const totalCases= 2;
   const now= new Date();
   const thisYear= now.getFullYear();
@@ -37,7 +38,7 @@ console.log(result, "result")
     <div  >
       <div className="  sticky top-0 h-[350px]   w-full">
         <CaseImage  image={image} image_alt_text={image_alt_text} />
-        <CaseActions id={id} likes={likes} />
+        <CaseActions id={id} likes={likes} session={session} />
       </div>
       <div className="-mt-8">
           <Content content={content} year={year} title={title} court={court} quote={quote} published_at={published_at} />

@@ -7,10 +7,11 @@ import SignInModal from "./modals/signin-modal";
 import HeartExplosion from "./ui/heart-explosion";
 import { usePathname } from "next/navigation";
 const Portal=dynamic(()=>import("./modals/portal"), {ssr: false})
-import {handleAddLikeAction} from "../lib/actions";
+import {handleAddLikeAction, handleBookmarkAction} from "../lib/actions";
 
 
-const CaseActions=({likes, id}: {likes: number, id: string})=>{
+
+const CaseActions=({likes, id, session}: {likes: number, id: string })=>{
     const currentPath= usePathname();
     const originalLikes= {likesProp: likes};
     const [showModal, setShowModal]= useState(false);
@@ -27,6 +28,11 @@ const CaseActions=({likes, id}: {likes: number, id: string})=>{
             setToggle(isNowLiked);
             setCurrentLikes({likesProp: newLikesCount})
             handleAddLikeAction(id, newLikesCount)
+    }
+    
+    function handleBookmark(){
+        setBookmark(prev=> !prev)
+        handleBookmarkAction(session, id)
     }
 
     const shareData={
@@ -57,14 +63,14 @@ const CaseActions=({likes, id}: {likes: number, id: string})=>{
                 </div>
             </div>   
                 <button onClick={()=> setShowModal(prev=> !prev)} >
-                <Bookmark  size={24} onClick={()=>setBookmark(prev=> !prev)} 
-                className={` transition-all text-text-neutral-primary duration-100 ease-out active:scale-75 ${bookmark ? "text-text-neutral-primary fill-text-neutral-primary" : "fill-transparent" }`}/>
+                    <Bookmark  size={24} onClick={handleBookmark} 
+                    className={` transition-all text-text-neutral-primary duration-100 ease-out active:scale-75 ${bookmark ? "text-text-neutral-primary fill-text-neutral-primary" : "fill-transparent" }`}/>
                 </button>
-                { showModal ? 
+                {/*showModal ?*/ }
+                { !session &&(
                     <Portal>
                         <SignInModal onClose={()=>setShowModal(false)}/> 
-                    </Portal>
-                    : null}
+                    </Portal>)}
                 <SendHorizontal onClick={shareLink} size={24} className="text-text-neutral-primary drop-shadow-md transition-transform duration-150 active:scale-75 ease-in-out "/>
         </div>
     )
