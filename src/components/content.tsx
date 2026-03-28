@@ -21,7 +21,6 @@ const Content= (props: ContentProps)=>{
                 <h2 className="text-3xl text-text-on-brand font-fraunces font-bold">{props.title}</h2>
                 <div className="flex text-sm gap-2  italic">
                     <span>{props.year},</span>
-                    
                     <span>{props.court}</span>
                 </div>
                 <h3 className="text-text-brand-emphasis font-semibold italic text-center">{props.quote}</h3>

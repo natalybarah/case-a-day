@@ -3,7 +3,7 @@ import CaseActions from "@/src/components/case-actions";
 import Content from "@/src/components/content";
 import {sql} from '../../../../lib/neondb'
 import NotFound from "../../../not-found"
-
+import { CaseItem } from "../../discover/[slug]/page";
 
 export default async function  Cases({
     params,
@@ -21,8 +21,8 @@ export default async function  Cases({
     }
 
 
-      const {quote, content, year, title, court, image, image_alt_text, published_at}= result[0];
-
+      const {quote, content, year, title, court, image, image_alt_text, published_at, likes, id}= result[0] as CaseItem;
+console.log("LIKES DE  CASE SLUG", likes)
 // await createCollection();
 /*
 async function getCollections(){
@@ -37,13 +37,12 @@ const response= await getCollections();
       return 'there was an error'
     }
 
-
   return (
 
     <div  >
       <div className="  sticky top-0 h-[350px]   w-full">
         <CaseImage image={image} image_alt_text={image_alt_text}/>
-        <CaseActions />
+        <CaseActions likes={likes} id={id} />
 
       </div>
       <div>
@@ -57,4 +56,3 @@ const response= await getCollections();
 
   )
 };
-//here i put fakecomponent to test error

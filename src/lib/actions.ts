@@ -1,17 +1,9 @@
+'use server'
+import { sql } from "./neondb"
 
-
-export async function addLike(case){
-    'use server'
-    //ya va a recibir el caso individual
-    if (toggle){
-        const increase= {...case, likes: 297 + 1}
-        setIncrease(prev=> increase)
-    } else {
-        const decrease={...case, likes: 297 + 1}
-        setDecrease(prev=> decrease)
-    }
-    
+   export  async function handleAddLikeAction(id: string , newLikesCount: number){
+            
+            const newLikes= await sql`UPDATE cases SET likes = ${newLikesCount} WHERE id= ${id} `
+            console.log(newLikes, "NEW LIKES BABY SERVER ACTION")
 }
-
-//digamos que recibe un array [{}, {uuid: 45, likes:297}]
 

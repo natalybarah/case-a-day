@@ -30,14 +30,14 @@ console.log(result, "result")
   if(!result || result.length === 0 ){
      notFound()
   }
-  const {quote, content, year, title, court, image, image_alt_text, published_at}= result[0]
+  const {quote, content, year, title, court, image, image_alt_text, published_at, id, likes}= result[0]
 
 
   return (
     <div  >
       <div className="  sticky top-0 h-[350px]   w-full">
         <CaseImage  image={image} image_alt_text={image_alt_text} />
-        <CaseActions  />
+        <CaseActions id={id} likes={likes} />
       </div>
       <div className="-mt-8">
           <Content content={content} year={year} title={title} court={court} quote={quote} published_at={published_at} />

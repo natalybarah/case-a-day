@@ -7,60 +7,33 @@ import SignInModal from "./modals/signin-modal";
 import HeartExplosion from "./ui/heart-explosion";
 import { usePathname } from "next/navigation";
 const Portal=dynamic(()=>import("./modals/portal"), {ssr: false})
+import {handleAddLikeAction} from "../lib/actions";
 
 
-const CaseActions=()=>{
+const CaseActions=({likes, id}: {likes: number, id: string})=>{
+    const currentPath= usePathname();
+    const originalLikes= {likesProp: likes};
     const [showModal, setShowModal]= useState(false);
     const [toggle, setToggle]= useState(false);
     const [bookmark, setBookmark] =useState(false);
-      
-
-    type ArrayProps={
-        uuid: number,
-        likes: number
-    }[]
-     type CaseProps={
-        uuid: number,
-        likes: number
-    }
-    const originalCaseArray= [
-        {uuid: 300, likes: 22}, 
-        {uuid: 1254, likes: 15}, 
-        {uuid: 45, likes: 297}, 
-    ]
-    const selectedCase= {uuid: 45, likes: 267}
-//yo aqui le di un valor fijo pero en realidad necesito pasar el currect case del database a case actions. mediante props
-  const [activeCase, setActiveCase]= useState(selectedCase);
-
-    function handleAddLike(){
-
-        const isNowLiked= !toggle;
-        setToggle(isNowLiked);
-        if(isNowLiked){
-            setActiveCase(prev=> { return {...activeCase, likes: activeCase.likes + 1}} )
-        } else {
-            setActiveCase(prev=> { return {...activeCase, likes: activeCase.likes - 1}} )
-        }
-    }
-
-//en realidad tal vez no necesito modificar o acceder al array entero porque cuando haga el query, solo obtendre un valor, no los necesito todos
-//y tambien para renderizar aqui no los necesito todos, solo necesito uno en especifico.
-//en library los necesitare todos pero sera distinto porqueno me interesa hacer modificaciones en ese
-
-//todays case va a hacer algo como de todos los usuarios
-//mientras que library seran en especifico de un usuario... 
+      console.log('LIKES DE CASE ACTIONS', likes)
   
+    const [currentLikes, setCurrentLikes]= useState(originalLikes);
 
-    const currentPath= usePathname();
-    console.log(currentPath);
+
+    function handleLike(){
+            const isNowLiked= !toggle;
+            const newLikesCount= isNowLiked ? currentLikes.likesProp + 1 : currentLikes.likesProp - 1;
+            setToggle(isNowLiked);
+            setCurrentLikes({likesProp: newLikesCount})
+            handleAddLikeAction(id, newLikesCount)
+    }
 
     const shareData={
         title: "Case A Day",
         text: "Learn about new cases",
         url: `http://localhost:3000${currentPath}`
     }
-
- 
 
     const shareLink= async()=>{
         try{
@@ -75,10 +48,10 @@ const CaseActions=()=>{
     return(
         <div className="flex flex-col items-center absolute gap-2.5 top-1/2 -translate-y-1/2  right-4 z-20 "> 
             <div className="flex flex-col items-center gap-0.5 relative cursor-pointer">
-                <Heart onClick={handleAddLike} size={24}  
+                <Heart onClick={handleLike} size={24}  
                 className={`transition-transform active:scale-75 
                 ${toggle ? "text-red-500 fill-red-500" : "text-text-neutral-primary"}`} />
-                <span className="text-text-neutral-primary text-xs text-center">{activeCase.likes}</span>
+                <span className="text-text-neutral-primary text-xs text-center">{currentLikes.likesProp}</span>
                 <div className=" w-0 h-0 absolute top-1/2 left-1/2 ">
                     {toggle ? <HeartExplosion /> : null}
                 </div>
