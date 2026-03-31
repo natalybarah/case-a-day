@@ -17,7 +17,7 @@ export type CollectionUIProps={
 export type CaseItem={
     id: string,
     title: string,
-    slug: string,
+    slug?: string,
     quote: string,
     year: number,
     court: string,
@@ -26,7 +26,7 @@ export type CaseItem={
     likes: number,
     image: string;        
     image_alt_text: string;
-    chips: string[],
+    chips?: string[],
 }
 
 const ServerCollection= async ({params}: {params: Promise<{slug:string}>})=>{

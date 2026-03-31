@@ -11,17 +11,18 @@ import {handleAddLikeAction, handleBookmarkAction} from "../lib/actions";
 
 
 
-const CaseActions=({likes, id, session}: {likes: number, id: string })=>{
+const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: string, sessionId: string | undefined, isBookmarked: boolean })=>{
     const currentPath= usePathname();
     const originalLikes= {likesProp: likes};
     const [showModal, setShowModal]= useState(false);
     const [toggle, setToggle]= useState(false);
-    const [bookmark, setBookmark] =useState(false);
+    const [bookmark, setBookmark] =useState(isBookmarked);
+   
       console.log('LIKES DE CASE ACTIONS', likes)
   
     const [currentLikes, setCurrentLikes]= useState(originalLikes);
 
-
+   console.log(sessionId, 'sessionID from props in case actions')
     function handleLike(){
             const isNowLiked= !toggle;
             const newLikesCount= isNowLiked ? currentLikes.likesProp + 1 : currentLikes.likesProp - 1;
@@ -31,8 +32,14 @@ const CaseActions=({likes, id, session}: {likes: number, id: string })=>{
     }
     
     function handleBookmark(){
-        setBookmark(prev=> !prev)
-        handleBookmarkAction(session, id)
+        if (!sessionId) {
+            setShowModal(true);
+            return;
+        }
+        const bookmarkNewValue= !bookmark;
+        setBookmark(prev=> bookmarkNewValue)
+        handleBookmarkAction(id, bookmarkNewValue)
+
     }
 
     const shareData={
@@ -62,15 +69,15 @@ const CaseActions=({likes, id, session}: {likes: number, id: string })=>{
                     {toggle ? <HeartExplosion /> : null}
                 </div>
             </div>   
-                <button onClick={()=> setShowModal(prev=> !prev)} >
-                    <Bookmark  size={24} onClick={handleBookmark} 
+                <button onClick={handleBookmark} >
+                    <Bookmark  size={24}
                     className={` transition-all text-text-neutral-primary duration-100 ease-out active:scale-75 ${bookmark ? "text-text-neutral-primary fill-text-neutral-primary" : "fill-transparent" }`}/>
                 </button>
-                {/*showModal ?*/ }
-                { !session &&(
+                { showModal && (
                     <Portal>
                         <SignInModal onClose={()=>setShowModal(false)}/> 
-                    </Portal>)}
+                    </Portal>
+                )}
                 <SendHorizontal onClick={shareLink} size={24} className="text-text-neutral-primary drop-shadow-md transition-transform duration-150 active:scale-75 ease-in-out "/>
         </div>
     )
@@ -78,3 +85,8 @@ const CaseActions=({likes, id, session}: {likes: number, id: string })=>{
 
 export default CaseActions;
 
+//necesito inmplementar que cuando el usuario da guardar, luego sign in y conecta de verdad, debe devolverlo al caso que eligio y aparecer 
+//la ventanita de case saved y tal vez logged in. 
+
+//no esta funcionando el click outside del sign in modal
+//En todays case si esta logeado, pero cuando me voy a algun case en discover donde recibe session en props ya no esta loggeado. 

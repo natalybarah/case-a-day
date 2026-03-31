@@ -1,18 +1,12 @@
-//import Image from "next/image";
-//import { sql } from "../../lib/neondb";
-import Content from "../../components/content";
-import CaseActions from "../../components/case-actions";
-import CaseImage from "../../components/case-image";
 import { sql } from "@/src/lib/neondb";
 import { notFound } from "next/navigation";
-import { auth } from "@/src/auth";
+import CaseView from "@/src/components/case-view";
+import { CaseItem } from "./discover/[slug]/page";
 //import { TodayCaseSkeleton } from "@/src/components/ui/skeletons";
 
 
 export default async function TodayCase(){
-  const session= await auth();
-  console.log(session, "SESSION")
-  const totalCases= 2;
+  const totalCases= 5;
   const now= new Date();
   const thisYear= now.getFullYear();
   const elapsedTimestamp= now.getTime() - new Date(thisYear,0,0).getTime();
@@ -21,32 +15,28 @@ export default async function TodayCase(){
   const elapsedDaysWholeNumber= Math.floor(elapsedDays);
   console.log(elapsedDaysWholeNumber)
   const caseIndex= elapsedDaysWholeNumber % totalCases;
-
-  
-
   const result = await sql`SELECT * FROM cases ORDER BY id ASC LIMIT 1 OFFSET ${caseIndex}`
-console.log(result, "result")
-  console.log(caseIndex, "caseIndex")
+  
 
   if(!result || result.length === 0 ){
      notFound()
   }
-  const {quote, content, year, title, court, image, image_alt_text, published_at, id, likes}= result[0]
+  const caseData= result[0] as CaseItem;
 
+  return <CaseView {...caseData} />
+  
+};
 
-  return (
-    <div  >
+/* 
+   <div  >
       <div className="  sticky top-0 h-[350px]   w-full">
         <CaseImage  image={image} image_alt_text={image_alt_text} />
-        <CaseActions id={id} likes={likes} session={session} />
+        <CaseActions id={id} likes={likes} sessionId={sessionId} />
       </div>
       <div className="-mt-8">
           <Content content={content} year={year} title={title} court={court} quote={quote} published_at={published_at} />
       </div>
     </div>
-  )
-};
-
-
+*/
 
 

@@ -1,7 +1,7 @@
 type ContentProps={
     title?: string,
     court?: string,
-    year?: string,
+    year?: number,
     quote?: string,
     content?: string,
     published_at?: string
