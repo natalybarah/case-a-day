@@ -12,13 +12,14 @@ export const CaseCardLightSkeleton= ()=> {
     )
 }
 
-const CaseCardLight= ()=> {
+const CaseCardLight= ({title, court, year, image}: {title: string, court: string, year: string, image: string})=> {
+    console.log(image, "image from casecardlight")
     return (
         <div className="flex flex-row gap-3 pb-2.5 border-b-white/10 border-b">
-            <Image src="/images/gideonvwainwright.png" alt="case card" height={72} width={72} className="rounded-xl" />
+            <Image src={image} alt="case card" height={70} width={70} className="rounded-xl" />
             <div className="gap">
-                <p className="font-fraunces font-semibold text-[16px] text-text-neutral-primary ">Gideon v. Wainwright</p>
-                <p className="text-text-neutral-secondary font-regular text-[14px]">U.S. Supreme Court <span>•</span> 1963 </p>
+                <p className="font-fraunces font-semibold text-[16px] text-text-neutral-primary ">{title}</p>
+                <p className="text-text-neutral-secondary font-regular text-[14px]">{court}<span>•</span>{year}</p>
             </div>
         </div>
     )
