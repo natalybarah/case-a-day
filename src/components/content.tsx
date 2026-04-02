@@ -26,7 +26,7 @@ const Content= (props: ContentProps)=>{
             <div className="flex  justify-center items-center self-center align-center bg-brand-surface  h-[30] p-4  rounded-4xl 
          absolute -top-[15px] left-1/2 -translate-x-1/2 ">
                 <span className="font-medium text-[13]">  
-                 {props.path === "subcase" ? event : "today"}
+                 {props.path === "subcase" ? event : "Today"}
                 </span>
             </div>
             <div className="flex flex-col gap-2 case-caption text-text-neutral-secondary ">

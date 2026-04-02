@@ -6,7 +6,7 @@ const CaseCard= ({title, image, chips, imageAlt, slug})=>{
 
 console.log(imageAlt, "imageAlt!")
     return(
-        <Link  href={`/cases/${slug}`}>
+        <Link  href={`/cases/${slug}?from=discover`}>
             <div className="flex flex-col xs:p-3 p-2 bg-neutral-secondary rounded-2xl border border-white/8 shadow-card h-full ">
                 <div className="relative w-full h-[104px]  ">
                     <Image src={image} alt={imageAlt} fill className=" object-cover rounded-2xl max-h-[104px]  " />

@@ -15,9 +15,9 @@ export const CaseCardLightSkeleton= ()=> {
 }
 
 const CaseCardLight= ({...caseItem}: CaseItem)=> {
- //   console.log(image, "image from casecardlight")
+
     return (
-        <Link href={`/cases/${caseItem.slug}`}>
+        <Link href={`/cases/${caseItem.slug}?from=library`}>
             <div className="flex flex-row gap-3 pb-2.5 border-b-white/10 border-b">
                 <div className="relative w-18 h-18">
                     <Image src={caseItem.image} alt={caseItem.image_alt_text}sizes="75px" fill className="rounded-xl object-cover max-h-18 max-w-18" />
