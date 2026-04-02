@@ -15,17 +15,17 @@ export type CollectionUIProps={
 }
 
 export type CaseItem={
-    id: string,
-    title: string,
+    id?: string,
+    title?: string,
     slug?: string,
-    quote: string,
-    year: number,
-    court: string,
-    content: string,
-    published_at: string,
-    likes: number,
-    image: string;        
-    image_alt_text: string;
+    quote?: string,
+    year?: number,
+    court?: string,
+    content?: string,
+    published_at?: string,
+    likes?: number,
+    image?: string;        
+    image_alt_text?: string;
     chips?: string[],
 }
 

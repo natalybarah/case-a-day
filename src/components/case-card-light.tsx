@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Link from "next/link";
+import { CaseItem } from "../app/(main)/discover/[slug]/page";
 
 export const CaseCardLightSkeleton= ()=> {
  return (
@@ -12,16 +14,20 @@ export const CaseCardLightSkeleton= ()=> {
     )
 }
 
-const CaseCardLight= ({title, court, year, image}: {title: string, court: string, year: string, image: string})=> {
-    console.log(image, "image from casecardlight")
+const CaseCardLight= ({...caseItem}: CaseItem)=> {
+ //   console.log(image, "image from casecardlight")
     return (
-        <div className="flex flex-row gap-3 pb-2.5 border-b-white/10 border-b">
-            <Image src={image} alt="case card" height={70} width={70} className="rounded-xl" />
-            <div className="gap">
-                <p className="font-fraunces font-semibold text-[16px] text-text-neutral-primary ">{title}</p>
-                <p className="text-text-neutral-secondary font-regular text-[14px]">{court}<span>•</span>{year}</p>
+        <Link href={`/cases/${caseItem.slug}`}>
+            <div className="flex flex-row gap-3 pb-2.5 border-b-white/10 border-b">
+                <div className="relative w-18 h-18">
+                    <Image src={caseItem.image} alt={caseItem.image_alt_text}sizes="75px" fill className="rounded-xl object-cover max-h-18 max-w-18" />
+                </div>
+                <div className="gap">
+                    <p className="font-fraunces font-semibold text-[16px] text-text-neutral-primary ">{caseItem.title}</p>
+                    <p className="text-text-neutral-secondary font-regular text-[14px]">{caseItem.court}<span className="mx-1">•</span>{caseItem.year}</p>
+                </div>
             </div>
-        </div>
+        </Link>
     )
 }
 

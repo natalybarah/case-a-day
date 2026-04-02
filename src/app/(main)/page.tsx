@@ -23,8 +23,8 @@ export default async function TodayCase(){
   }
   const caseData= result[0] as CaseItem;
 
-  return <CaseView {...caseData} />
-  
+  return <CaseView {...caseData} path="another"  />
+
 };
 
 /* 

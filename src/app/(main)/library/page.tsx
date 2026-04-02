@@ -17,7 +17,9 @@ const Library = async ()=> {
                                     title, 
                                     court,
                                     year,
+                                    slug,
                                     image,
+                                    image_alt_text,
                                     bookmarks.case_id AS bookmark_case_identity
                                 FROM 
                                     cases
@@ -29,10 +31,8 @@ const Library = async ()=> {
         <div className=" flex flex-col bg-library h-dvh pt-4 p-4 gap-7.5">
             <h1 className="font-black font-fraunces text-text-brand-emphasis text-[40px]">Your docket</h1>
             <div className=" flex flex-col gap-2.5">
-               {docket.map((caseItem, index) => 
-                <Fragment key={index}>
-                    <CaseCardLight image={caseItem.image} title={caseItem.title} court={caseItem.court} year={caseItem.year} />
-                </Fragment>
+               {docket.map(caseItem => 
+                    <CaseCardLight key={caseItem.caseidentity} {...caseItem}  />
                )}
             </div>
             <div className="flex flex-col items-center justify-center m-auto translate-y-[-54px]">
