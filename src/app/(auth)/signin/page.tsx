@@ -29,38 +29,34 @@ const SignInUser=()=>{
                         <p className="font-semibold text-text-neutral-secondary text-center  w-full">Log in with</p>
                     <div className="border-t-text-neutral-secondary border-t w-full"></div>
                 </div>
-                <div className="flex flex-row gap-5">
 
+                <div className="flex flex-row gap-5">
                     <SignIn provider="facebook">
                         <ButtonContainer  message="Facebook">
                             <Image src={FacebookIcon} width={44} height={44} alt="facebook icon"/>
                         </ButtonContainer>
                     </SignIn> 
-                    
                     <SignIn provider="google">
                         <ButtonContainer  message="Google">
                             <Image src={GoogleIcon} width={44} height={44} alt="google icon"/>
                         </ButtonContainer>
                     </SignIn>
-                    
-                    
                     <SignIn provider="linkedin">
-                        
                         <ButtonContainer  message="LinkedIn">
                             <Image src={LinkedinIcon} width={44} height={44} alt="linkedin icon"/>
                         </ButtonContainer>
-                    
                     </SignIn> 
                 </div>
+
                <div className="w-full flex flex-row items-center">
                     <div className="border-t-text-neutral-secondary border-t w-full"></div>
                         <p className="font-semibold text-text-neutral-secondary text-center text-nowrap p-4  w-full">or continue with</p>
                     <div className="border-t-text-neutral-secondary border-t w-full"></div>
                 </div>
+
                 <SignInWithEmail className="flex flex-col gap-6 w-full">
                     <UserInput placeholder="Email" name="email" inputType="text" icon={Mail} />
-                   
-                 <ActionButton impact="boldLarge" message="Continue"/>
+                    <ActionButton impact="boldLarge" message="Continue"/>
                  </SignInWithEmail>
                   
                 <div className="text-center ">

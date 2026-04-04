@@ -2,10 +2,14 @@ import { sql } from "@/src/lib/neondb";
 import { notFound } from "next/navigation";
 import CaseView from "@/src/components/case-view";
 import { CaseItem } from "./discover/[slug]/page";
+import ToastNotification from "@/src/components/modals/toast-saved";
 //import { TodayCaseSkeleton } from "@/src/components/ui/skeletons";
+import { auth } from "@/src/auth";
 
 
 export default async function TodayCase(){
+  const session= await auth();
+  const sessionId= session?.user?.id;
   const totalCases= 5;
   const now= new Date();
   const thisYear= now.getFullYear();
@@ -22,8 +26,15 @@ export default async function TodayCase(){
      notFound()
   }
   const caseData= result[0] as CaseItem;
+  console.log("SESSION ID FROM TODAY CASE", sessionId)
 
-  return <CaseView {...caseData} path="another"  />
+  return( 
+    <>
+    {sessionId ? <ToastNotification/> : null}
+    
+    <CaseView {...caseData} path="another"  />
+    </>
+  )
 
 };
 

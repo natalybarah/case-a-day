@@ -1,0 +1,98 @@
+case-a-day
+├── README.md
+├── eslint.config.mjs
+├── next.config.ts
+├── package-lock.json
+├── package.json
+├── postcss.config.mjs
+├── public
+│   ├── file.svg
+│   ├── globe.svg
+│   ├── images
+│   │   ├── auth-failed.png
+│   │   ├── frontiero-v-richardson-rbg.jpg
+│   │   ├── gideonvwainwright.jpg
+│   │   ├── gideonvwainwright.png
+│   │   ├── lawbyaccident.jpg
+│   │   ├── meritor-savings-bank-v-vinson.jpg
+│   │   ├── movefastandsuethings.jpg
+│   │   ├── not-found.png
+│   │   ├── pricewaterhousevhopkins.jpg
+│   │   ├── roll.png
+│   │   ├── server-down.png
+│   │   ├── waitlikeitshard.jpg
+│   │   └── whole-womans-v-health-hellerstedt.jpg
+│   ├── vercel.svg
+│   └── window.svg
+├── src
+│   ├── actions
+│   │   ├── auth.js
+│   │   └── case.js
+│   ├── app
+│   │   ├── (auth)
+│   │   │   ├── _layout.tsx
+│   │   │   ├── error.tsx
+│   │   │   ├── signin
+│   │   │   └── signup
+│   │   ├── (main)
+│   │   │   ├── _noty-found.tsx
+│   │   │   ├── cases
+│   │   │   ├── discover
+│   │   │   ├── error.tsx
+│   │   │   ├── layout.tsx
+│   │   │   ├── library
+│   │   │   └── page.tsx
+│   │   ├── api
+│   │   │   └── auth
+│   │   ├── globals.css
+│   │   ├── layout.tsx
+│   │   └── not-found.tsx
+│   ├── assets
+│   │   ├── caseadaylogo.png
+│   │   ├── facebook-icon.svg
+│   │   ├── google-icon.svg
+│   │   ├── linkedin-icon.svg
+│   │   ├── pricewaterhousevhopkins.jpg
+│   │   └── ruthbaderginsburg.jpg
+│   ├── auth.ts
+│   ├── components
+│   │   ├── attorney-card.jsx
+│   │   ├── auth
+│   │   │   └── auth.tsx
+│   │   ├── case-actions.tsx
+│   │   ├── case-card-light.tsx
+│   │   ├── case-card.tsx
+│   │   ├── case-image.tsx
+│   │   ├── case-view.tsx
+│   │   ├── collection-card.tsx
+│   │   ├── content.tsx
+│   │   ├── empty-library.tsx
+│   │   ├── error-state.tsx
+│   │   ├── error-template.tsx
+│   │   ├── footer.tsx
+│   │   ├── modals
+│   │   │   ├── portal.tsx
+│   │   │   ├── saved-cases.jsx
+│   │   │   ├── signin-modal.tsx
+│   │   │   └── toast-saved.tsx
+│   │   ├── partial-library.jsx
+│   │   └── ui
+│   │       ├── back-button.tsx
+│   │       ├── button-container.tsx
+│   │       ├── button.tsx
+│   │       ├── chip.tsx
+│   │       ├── heart-explosion.tsx
+│   │       ├── modalNew.tsx
+│   │       ├── skeletons.tsx
+│   │       └── user-input.tsx
+│   ├── context
+│   │   └── user-context.jsx
+│   ├── lib
+│   │   ├── actions.ts
+│   │   └── neondb.js
+│   └── utils
+│       └── utils.ts
+├── structure.txt
+├── structure.txt^[[200~npx
+├── structure.txt~
+└── tsconfig.json

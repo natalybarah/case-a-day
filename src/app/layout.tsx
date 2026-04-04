@@ -30,7 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={` ${inter.variable} ${fraunces.variable}   antialiased`} >
+      <body className={`h-dvh w-screen overflow-hidden flex flex-col ${inter.variable} ${fraunces.variable}   antialiased`} >
         {children}
         <div id="portal"/>
       </body>

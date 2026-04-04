@@ -1,14 +1,29 @@
 import { signIn, signOut } from "@/src/auth";
+import { auth } from "@/src/auth";
+/*
+tal vex aqui introducir una accion... 
+donde cuando hace sign in viene y lo redirect 
 
+*/
 export function SignIn({provider, children}: {provider?: string, children?: React.ReactNode}){
+  /* 
+    const onSubmitHandler = ()=> {
+        const session= auth();
+        const sessionId= session?.user?.id
+            if(sessionId){
+
+            }
+     
+    }
+*/
     return(
         <form
             action={async ()=>{
                 "use server"
-                await signIn(provider)
+                await signIn(provider, {redirectTo: "/"})
             }}
         >
-            {<button type="submit">{children}</button>}
+            {<button  /*onSubmit={onSubmitHandler}*/ type="submit">{children}</button>}
         </form>
 
 

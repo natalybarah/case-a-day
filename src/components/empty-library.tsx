@@ -1,7 +1,8 @@
 
 import Image from "next/image";
-import Logo from "../../public/assets/caseadaylogo.png";
+import Logo from "../assets/caseadaylogo.png";
 import ActionButton from "./ui/button";
+import Link from "next/link";
 
 const EmptyLibrary= ()=>{
 
@@ -13,8 +14,12 @@ const EmptyLibrary= ()=>{
                 <p className="font-medium text-text-neutral-secondary text-xl text-center">Bookmark cases you love to build your personal docket</p>
             </div>
             <div className=" flex flex-col gap-4 w-full">
-                <ActionButton message={"Explore collections"} impact="boldLarge" />
-                <ActionButton message={"Explore featured cases"} impact="light"/>        
+            <Link href="/discover">   
+                <ActionButton  message={"Explore collections"} impact="boldLarge" />
+            </Link> 
+            <Link href="/">
+                <ActionButton message={"Explore featured cases"} impact="light"/>  
+            </Link>      
             </div>
         </div>
 

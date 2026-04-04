@@ -9,6 +9,13 @@ import { usePathname } from "next/navigation";
 const Portal=dynamic(()=>import("./modals/portal"), {ssr: false})
 import {handleAddLikeAction, handleBookmarkAction} from "../lib/actions";
 
+/*
+
+ --color-brand-surface: #4C1D95; specific section theme like pills and footer
+    --color-brand-solid: #8B5CF6; used in buttons background
+    --color-brand-solid-hover: #7C3AED; Hover states 
+
+*/
 
 
 const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: string, sessionId: string | undefined, isBookmarked: boolean })=>{
@@ -59,7 +66,7 @@ const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: str
     }
 
     return(
-        <div className="flex flex-col items-center absolute gap-2.5 top-1/2 -translate-y-1/2  right-4 z-20 "> 
+        <div className="flex flex-col items-center absolute gap-2.5 top-1/2 -translate-y-1/2  right-4 z-20 bg-brand-surface/80 backdrop-blur-md  rounded-full pt-3 px-2 py-3"> 
             <div className="flex flex-col items-center gap-0.5 relative cursor-pointer">
                 <Heart onClick={handleLike} size={24}  
                 className={`transition-transform active:scale-75 
