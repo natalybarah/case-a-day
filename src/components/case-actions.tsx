@@ -2,7 +2,7 @@
 'use client'
 import {Heart, Bookmark, SendHorizontal} from "lucide-react"
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SignInModal from "./modals/signin-modal";
 import HeartExplosion from "./ui/heart-explosion";
 import { usePathname } from "next/navigation";
@@ -18,7 +18,7 @@ import {handleAddLikeAction, handleBookmarkAction} from "../lib/actions";
 */
 
 
-const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: string, sessionId: string | undefined, isBookmarked: boolean })=>{
+const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: string, sessionId: string | undefined, isBookmarked: boolean})=>{
     const currentPath= usePathname();
     const originalLikes= {likesProp: likes};
     const [showModal, setShowModal]= useState(false);
@@ -26,10 +26,11 @@ const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: str
     const [bookmark, setBookmark] =useState(isBookmarked);
    
       console.log('LIKES DE CASE ACTIONS', likes)
-  
+        console.log(isBookmarked, 'is bookmarked')
     const [currentLikes, setCurrentLikes]= useState(originalLikes);
 
    console.log(sessionId, 'sessionID from props in case actions')
+
     function handleLike(){
             const isNowLiked= !toggle;
             const newLikesCount= isNowLiked ? currentLikes.likesProp + 1 : currentLikes.likesProp - 1;
@@ -43,11 +44,12 @@ const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: str
             setShowModal(true);
             return;
         }
+
         const bookmarkNewValue= !bookmark;
         setBookmark(prev=> bookmarkNewValue)
         handleBookmarkAction(id, bookmarkNewValue)
-
     }
+   
 
     const shareData={
         title: "Case A Day",
@@ -91,9 +93,3 @@ const CaseActions=({likes, id, sessionId, isBookmarked}: {likes: number, id: str
 }
 
 export default CaseActions;
-
-//necesito inmplementar que cuando el usuario da guardar, luego sign in y conecta de verdad, debe devolverlo al caso que eligio y aparecer 
-//la ventanita de case saved y tal vez logged in. 
-
-//no esta funcionando el click outside del sign in modal
-//En todays case si esta logeado, pero cuando me voy a algun case en discover donde recibe session en props ya no esta loggeado. 

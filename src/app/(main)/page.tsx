@@ -3,11 +3,16 @@ import { notFound } from "next/navigation";
 import CaseView from "@/src/components/case-view";
 import { CaseItem } from "./discover/[slug]/page";
 import ToastNotification from "@/src/components/modals/toast-saved";
-//import { TodayCaseSkeleton } from "@/src/components/ui/skeletons";
+import { handleBookmarkAction } from "@/src/lib/actions";
+
 import { auth } from "@/src/auth";
 
 
-export default async function TodayCase(){
+export default async function TodayCase({
+  searchParams,
+}: {searchParams: Promise<{[key: string]: string | undefined}>
+  }) {
+  const {from} = await searchParams;
   const session= await auth();
   const sessionId= session?.user?.id;
   const totalCases= 5;
@@ -27,27 +32,17 @@ export default async function TodayCase(){
   }
   const caseData= result[0] as CaseItem;
   console.log("SESSION ID FROM TODAY CASE", sessionId)
+  console.log("FROM", from)
+
+  if(from==="signin"){
+    handleBookmarkAction(caseData.id, true)
+  }
 
   return( 
     <>
-    {sessionId ? <ToastNotification/> : null}
-    
-    <CaseView {...caseData} path="another"  />
+      {from === "signin" ? <ToastNotification/> : null}
+      <CaseView {...caseData} path="another"  />
     </>
   )
 
 };
-
-/* 
-   <div  >
-      <div className="  sticky top-0 h-[350px]   w-full">
-        <CaseImage  image={image} image_alt_text={image_alt_text} />
-        <CaseActions id={id} likes={likes} sessionId={sessionId} />
-      </div>
-      <div className="-mt-8">
-          <Content content={content} year={year} title={title} court={court} quote={quote} published_at={published_at} />
-      </div>
-    </div>
-*/
-
-

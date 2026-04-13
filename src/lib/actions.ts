@@ -9,7 +9,7 @@ import { auth } from "../auth";
             console.log(newLikes, "NEW LIKES BABY SERVER ACTION")   
     }
 
-    export async function handleBookmarkAction(case_id: string, bookmarkNewValue: boolean){
+    export async function handleBookmarkAction(case_id: string | undefined, bookmarkNewValue: boolean){
         const session= await auth();
         const userId= session?.user?.id
         if(!session?.user?.id){

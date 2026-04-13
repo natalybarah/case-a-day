@@ -19,7 +19,7 @@ const CaseView= async ({
     quote,
     published_at,
     path
-}: CaseItem & {path:string})=>{
+}: CaseItem & {path: string})=>{
 
 console.log(path, "PAAAAATH")
       const session= await auth();
