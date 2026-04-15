@@ -38,11 +38,11 @@ const Library = async ()=> {
                     <CaseCardLight key={caseItem.caseidentity} {...caseItem}  />
                )}
             </div>
-            </Suspense>
             <div className="flex flex-col items-center justify-center m-auto translate-y-[-54px]">
 
             { docket.length === 0  ? <EmptyLibrary  /> : docket.length < 3  ?  <PartialLibrary/> : null}
             </div>
+            </Suspense>
         </div>
        
         
