@@ -46,15 +46,3 @@ console.log(collections, 'result of collections')
 }
 export default Discover;
 
-
-/*
-algo como
-
-<Link to= discover/collection>
-   <CollectionCard key={index} title={collection.title} chips={collection.chips} isnew={collection.isnew} image={collection.image}>
-        <Collection title={collection.title} chips={collection.chips} isnew={collection.isnew} image={collection.image}/>
-   </CollectionCard>
-
-</Link>
-
-*/

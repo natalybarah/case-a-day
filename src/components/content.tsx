@@ -22,8 +22,8 @@ const Content= (props: ContentProps)=>{
        
    
     return(
-        <div className=" flex flex-col gap-4 bg-neutral-primary text-text-neutral-primary px-[23.5] pt-6 rounded-t-[40px] relative pb-10" >
-            <div className="flex  justify-center items-center self-center align-center bg-brand-surface  h-[30] p-4  rounded-full
+        <div className=" flex flex-col gap-4 bg-neutral-primary text-text-neutral-primary px-[22px] pt-6 rounded-t-[40px] relative pb-10" >
+            <div className="flex  justify-center items-center self-center align-center bg-brand-surface  h-6 p-4  rounded-full
          absolute -top-[15px] left-1/2 -translate-x-1/2 ">
                 <span className="font-medium text-[13]">  
                  {props.path === "subcase" ? event : "Today"}

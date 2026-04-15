@@ -2,7 +2,7 @@
 'use client'
 import {Heart, Bookmark, SendHorizontal} from "lucide-react"
 import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SignInModal from "./modals/signin-modal";
 import HeartExplosion from "./ui/heart-explosion";
 import { usePathname } from "next/navigation";

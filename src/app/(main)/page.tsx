@@ -4,7 +4,6 @@ import CaseView from "@/src/components/case-view";
 import { CaseItem } from "./discover/[slug]/page";
 import ToastNotification from "@/src/components/modals/toast-saved";
 import { handleBookmarkAction } from "@/src/lib/actions";
-
 import { auth } from "@/src/auth";
 
 
@@ -34,13 +33,9 @@ export default async function TodayCase({
   console.log("SESSION ID FROM TODAY CASE", sessionId)
   console.log("FROM", from)
 
-  if(from==="signin"){
-    handleBookmarkAction(caseData.id, true)
-  }
-
   return( 
     <>
-      {from === "signin" ? <ToastNotification/> : null}
+      {from === 'signin' && <ToastNotification caseId={caseData.id}/> }
       <CaseView {...caseData} path="another"  />
     </>
   )
