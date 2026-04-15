@@ -10,6 +10,7 @@ export default function FooterLayout({children}: Readonly<{children: React.React
                     <div className="shrink-0">
                         <Footer/>
                     </div>
+                    
                 </div>
                 
     );

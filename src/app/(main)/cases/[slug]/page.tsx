@@ -4,7 +4,7 @@ import NotFound from "../../../not-found"
 import { CaseItem } from "../../discover/[slug]/page";
 import CaseView from "@/src/components/case-view";
 import BackButton from '@/src/components/ui/back-button';
-import { handleBookmarkAction } from '@/src/lib/actions';
+
 
 export default async function  Cases({
     params, searchParams
