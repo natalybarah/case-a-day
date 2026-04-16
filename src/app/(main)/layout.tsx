@@ -1,4 +1,5 @@
 import Footer from "../../components/footer";
+import { Suspense } from "react";
 
 
 export default function FooterLayout({children}: Readonly<{children: React.ReactNode;}>){
@@ -8,9 +9,11 @@ export default function FooterLayout({children}: Readonly<{children: React.React
                         {children}
                     </div>
                     <div className="shrink-0">
-                        <Footer/>
+                        <Suspense fallback={<div className="h-[54px] bg-transparent" />}>
+                            <Footer/>
+                        </Suspense>
                     </div>
-                    
+
                 </div>
                 
     );

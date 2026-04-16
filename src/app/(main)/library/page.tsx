@@ -8,7 +8,7 @@ import { sql } from "@/src/lib/neondb";
 import { Fragment } from "react/jsx-runtime";
 import { CaseCardLightSkeleton } from "@/src/components/case-card-light";
 import CaseCard from "@/src/components/case-card";
-import { Suspense } from "react";
+
 const Library = async ()=> {
 
     const session= await auth();
@@ -32,7 +32,7 @@ const Library = async ()=> {
     return(
         <div className=" flex flex-col bg-library h-full pt-4 p-4 gap-7.5">
             <h1 className="font-black font-fraunces text-text-brand-emphasis text-[40px]">Your docket</h1>
-            <Suspense fallback={<div>Loading your cases...</div>}>
+           
             <div className=" flex flex-col gap-2.5">
                {docket.map(caseItem => 
                     <CaseCardLight key={caseItem.caseidentity} {...caseItem}  />
@@ -42,7 +42,7 @@ const Library = async ()=> {
 
             { docket.length === 0  ? <EmptyLibrary  /> : docket.length < 3  ?  <PartialLibrary/> : null}
             </div>
-            </Suspense>
+            
         </div>
        
         
