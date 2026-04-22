@@ -11,6 +11,8 @@ type CollectionCardProps={
     image: string,
     slug: string
 }
+
+
 const CollectionCard: FC<CollectionCardProps>=(props)=>{
 
 

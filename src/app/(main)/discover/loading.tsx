@@ -1,21 +1,14 @@
+import CollectionCardSkeleton from "@/src/components/collection-card-skeleton"
+import AttorneyCardSkeleton from "@/src/components/attorney-card-skeleton"
+import ActionButton from "@/src/components/ui/button";
 
-import CollectionCard from "../../../components/collection-card";
-import AttorneyCard from "../../../components/attorney-card";
-import ActionButton from "../../../components/ui/button";
-import { sql } from "@/src/lib/neondb";
-import AttorneyCardSkeleton from "@/src/components/attorney-card-skeleton";
-import CollectionCardSkeleton from "@/src/components/collection-card-skeleton";
+export default function Loading(){
 
-const delay =(ms: number)=> {return new Promise((resolve, reject)=>setTimeout(()=> { resolve("sucess")}, ms))}
-const Discover= async ()=>{
-    await delay(5000)
-    const collections= await sql`SELECT *  FROM collections WHERE is_featured = true ORDER BY created_at ASC`;
-console.log(collections, 'result of collections')
+    const collectionSkeletons= Array.from({length:3})
+    const attorneySkeletons=  Array.from({length: 3})
 
-//h-[calc(100dvh-54px)] alternate hight solution
-
-    return(
-      
+return(
+          
 
         <div className="bg-linear-[180deg,#0B1020_0%,#121733_100%] min-h-screen flex flex-col gap-3 p-4 xs:pt-4 pt-2 pb-20">
                     <div className="pb-4 ">
@@ -24,17 +17,17 @@ console.log(collections, 'result of collections')
                             <h2 className="font-semibold font-fraunces text-[18px] text-text-brand-emphasis mb-1">Collections</h2>
                         </div> 
                         <div className="flex flex-row flex-wrap pt-2  gap-4  justify-center ">
-                            {collections.map((collection, index)=>(
-                                <CollectionCard slug={collection.slug} key={index} title={collection.title} chips={collection.chips} isnew={collection.isnew} image={collection.image}/>
+                            {collectionSkeletons.map((collection, index)=>(
+                                <CollectionCardSkeleton key={index} isnew={index === 0} />
                             ))}
                         </div>
                         <div className="flex flex-col xs:gap-6 gap-2">
                             <h2 className="font-semibold font-fraunces text-[18px]  text-text-brand-emphasis pt-2  ">Attorneys</h2>
                         
                             <div  className="flex flex-row gap-2.5 overflow-x-auto no-scrollbar" >
-                                    <AttorneyCard/>
-                                    <AttorneyCard/>
-                                    <AttorneyCard/>
+                                {attorneySkeletons.map((attorney, index)=>(
+                                            <AttorneyCardSkeleton key={index}/>
+                                ))}
                             </div>
                             <div className="self-end pt-2">
                                 <ActionButton impact="bold" message={"Explore all"} />
@@ -42,10 +35,6 @@ console.log(collections, 'result of collections')
                         </div>
                     </div>
             </div>
-        
-     ) 
-       
-    
+)
 }
-export default Discover;
 
