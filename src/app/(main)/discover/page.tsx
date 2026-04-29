@@ -3,12 +3,11 @@ import CollectionCard from "../../../components/collection-card";
 import AttorneyCard from "../../../components/attorney-card";
 import ActionButton from "../../../components/ui/button";
 import { sql } from "@/src/lib/neondb";
-import AttorneyCardSkeleton from "@/src/components/attorney-card-skeleton";
-import CollectionCardSkeleton from "@/src/components/collection-card-skeleton";
 
-const delay =(ms: number)=> {return new Promise((resolve, reject)=>setTimeout(()=> { resolve("sucess")}, ms))}
+
+
 const Discover= async ()=>{
-    await delay(5000)
+  
     const collections= await sql`SELECT *  FROM collections WHERE is_featured = true ORDER BY created_at ASC`;
 console.log(collections, 'result of collections')
 

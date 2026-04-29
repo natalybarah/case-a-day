@@ -1,5 +1,6 @@
 import { sql } from "@/src/lib/neondb"
 import CollectionUI from "./collection-ui"
+import {  ReactElement } from "react"
 
 export type CollectionProps={
     title: string,
@@ -8,10 +9,9 @@ export type CollectionProps={
     id: string
 }
 
-export type CollectionUIProps={
+export  type CollectionUIProps={
     collection: CollectionProps,
     cases: CaseItem[]
-
 }
 
 export type CaseItem={
@@ -28,8 +28,10 @@ export type CaseItem={
     image_alt_text?: string;
     chips?: string[],
 }
+ const delay = (ms: number)=> new Promise((resolve, reject)=> resolve(setTimeout(()=> {}, ms)))
+    
 
-const ServerCollection= async ({params}: {params: Promise<{slug:string}>})=>{
+export default async function  ServerCollection ({params}: {params: Promise<{slug:string}>}): Promise<ReactElement>{
 
     const {slug}= await params;
 
@@ -37,8 +39,9 @@ const ServerCollection= async ({params}: {params: Promise<{slug:string}>})=>{
     const collection= result[0] as CollectionProps;
     console.log(collection, "collection")
     const cases= await sql`SELECT * FROM cases WHERE collection_id = ${collection.id}` as CaseItem[]
-
+    await delay(5000)
     return  <CollectionUI collection={collection} cases={cases}/>
 }
 
-export default ServerCollection;
+
+
